@@ -1,0 +1,30 @@
+mixin produit()
+    li.produit
+        img.audio-cover(src="assets/img/default-audio-cover.png")
+        p.nom-musique Nom de la musique
+        p.nom-artiste Nom de l'artiste
+        audio.audio-controls(controls)
+            source(src="http://webcodetools.com/media/sound.ogg" type="audio/ogg")
+            source(src="http://webcodetools.com/media/sound.mp3" type="audio/mpeg")
+            source(src="http://webcodetools.com/media/sound.wav" type="audio/wav")
+            | Votre navigateur ne supporte pas le player audio.
+        p.prix-produit 27,27€
+        button.ajouter-panier Retirer du panier
+
+main
+    header
+        h2#rubrique-title
+            span Votre panier
+
+    main#panier
+
+        ul#liste-produits
+
+            -for(var i = 0; i <= 6; i++) {
+                +produit
+            -}
+        section.validation
+            button.cta.valider-panier: a(href="commande.html") Valider
+
+
+

@@ -1,0 +1,47 @@
+mixin produit()
+    li.produit
+        img.audio-cover(src="assets/img/default-audio-cover.png")
+        p.nom-musique Nom de la musique
+        p.nom-artiste Nom de l'artiste
+        audio.audio-controls(controls)
+            source(src="http://webcodetools.com/media/sound.ogg" type="audio/ogg")
+            source(src="http://webcodetools.com/media/sound.mp3" type="audio/mpeg")
+            source(src="http://webcodetools.com/media/sound.wav" type="audio/wav")
+            | Votre navigateur ne supporte pas le player audio.
+        p.prix-produit 27,27€
+        button.ajouter-panier Ajouter au panier
+
+header#page-header
+    nav#main-nav
+        ul.nav-items
+            li.item.logo-wrapper
+                a(href="#"): img.logo(src="assets/img/logo-multimedia-world.png")
+            li.item#searchbar-wrapper
+                input#searchbar(type="text", placeholder="Recherche ...")
+                button.look(type="submit")
+                    i.fa.fa-2x.fa-search
+            li.item#icon-pool
+                article.icon-wrap
+                    a(href="#")
+                        i.icon.fa.fa-3x.fa-user
+                        span.icon-text compte
+
+                article.icon-wrap
+                    a(href="panier.html")
+                        i.icon.fa.fa-3x.fa-shopping-cart
+                        span.icon-text panier
+
+    hr
+
+    nav#page-nav
+        ul.nav-items
+            li.item: a(href="#"): span nouveautés
+            li.item.dropdown-on-hover rubriques
+                ul.dropdown
+                    li.item: a(href="rubriques.html#rock"): span Rock
+                    li.item: a(href="rubriques.html#jazz"): span Jazz
+                    li.item: a(href="rubriques.html#classique"): span Classique
+                    li.item: a(href="rubriques.html#chansons%20enfantines"): span Chansons enfantines
+            li.item: a(href="/presentation.html"): span a propos
+
+

@@ -1,0 +1,20 @@
+{
+    "formation" : {
+        "esiee-now": {
+            "lead": "je suis actuellement en 5ème année d'études"
+            ,"descriptor": "à ESIEE Paris, en spécialisation Analyse de données"
+        }
+        ,"poly": {
+            "lead": "j'ai étudié en France et au Canada"
+            ,"descriptor": "à l'école Polytechnique de Montréal"
+        }
+        ,"esiee-prepa": {
+            "lead": "j'ai suivi un cursus préparatoire"
+            ,"descriptor": "en 2 ans à ESIEE Paris"
+        }
+        ,"lycee-cugnot": {
+            "lead": "j'ai eu mon Baccalauréat S avec mention Très Bien"
+            ,"descriptor": "au lycée N.J. Cugnot de Neuilly-sur-Marne"
+        }
+    }
+}
