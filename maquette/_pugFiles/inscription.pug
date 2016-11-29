@@ -1,0 +1,24 @@
+main
+    header
+        h2#rubrique-title
+            span Inscription
+
+    main#inscription
+
+        form#modal
+            article.modal-part
+                input(type="text", placeholder="Nom ...")
+            article.modal-part
+                input(type="text", placeholder="Prénom ...")
+            article.modal-part
+                input(type="text", placeholder="Adresse ...")
+            article.modal-part
+                label Vous êtes un ...
+                select(name="select")
+                    -var roles = ["client", "professionel"];
+                    each r in roles
+                        option(value=r) #{r}
+            article.modal-part
+                input(type="password", placeholder="Mot de passe ...")
+            article.modal-part
+                button(type="submit") S'inscrire

@@ -647,7 +647,7 @@ body {
     #commande .recapitulatif .valider-panier a {
       color: white; }
 
-#connexion {
+#connexion, #inscription {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -656,7 +656,7 @@ body {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
-  #connexion #modal {
+  #connexion #modal, #inscription #modal {
     margin-top: 1em;
     background: white;
     padding: 1em 2em .5em 2em;
@@ -674,14 +674,14 @@ body {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
-    #connexion #modal .modal-part {
+    #connexion #modal .modal-part, #inscription #modal .modal-part {
       padding: 1em;
       border-bottom: 1px solid rgba(34, 34, 34, 0.5); }
-      #connexion #modal .modal-part:last-child {
+      #connexion #modal .modal-part:last-child, #inscription #modal .modal-part:last-child {
         border: none; }
-    #connexion #modal input {
+    #connexion #modal input, #inscription #modal input {
       padding-left: .5em; }
-    #connexion #modal button[type="submit"] {
+    #connexion #modal button[type="submit"], #inscription #modal button[type="submit"] {
       padding: 1em;
       background: #BD5248;
       color: white; }
