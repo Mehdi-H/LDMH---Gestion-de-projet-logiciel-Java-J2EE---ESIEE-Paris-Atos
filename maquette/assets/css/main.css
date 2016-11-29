@@ -497,7 +497,7 @@ body {
     #presentation .cta a {
       color: #fff; }
 
-#liste-produits-wrap {
+#liste-produits-wrap, #panier {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -621,7 +621,7 @@ body {
     #panier .validation .valider-panier a {
       color: white; }
 
-#commande .recapitulatif {
+#commande .recapitulatif, #suivi-commande .recapitulatif {
   background: #222;
   display: -webkit-box;
   display: -webkit-flex;
@@ -638,13 +638,13 @@ body {
   margin-bottom: 2em;
   color: #BD5248;
   font-size: 1.3em; }
-  #commande .recapitulatif .valider-panier {
+  #commande .recapitulatif .valider-panier, #suivi-commande .recapitulatif .valider-panier {
     background: #BD5248;
     border-color: #222;
     -webkit-border-radius: 20px;
             border-radius: 20px;
     padding: .5em 1em; }
-    #commande .recapitulatif .valider-panier a {
+    #commande .recapitulatif .valider-panier a, #suivi-commande .recapitulatif .valider-panier a {
       color: white; }
 
 #connexion, #inscription {
@@ -716,6 +716,43 @@ body {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
+
+.progress-status {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #BD5248;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+  .progress-status progress {
+    -webkit-border-radius: 20px;
+            border-radius: 20px; }
+  .progress-status progress[value]::-webkit-progress-value {
+    background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #09c, #f44);
+    -webkit-border-radius: 2px;
+            border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%; }
+
+.progress-grad_old {
+  color: red;
+  background: red;
+  color: orange;
+  background: orange;
+  color: yellow;
+  background: yellow;
+  color: green;
+  background: green; }
 
 #page-header {
   background-color: white;

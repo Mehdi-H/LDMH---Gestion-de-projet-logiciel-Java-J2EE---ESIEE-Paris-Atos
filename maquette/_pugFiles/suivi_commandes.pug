@@ -1,4 +1,4 @@
-mixin produit()
+mixin produit(progress)
     li.produit
         img.audio-cover(src="assets/img/default-audio-cover.png")
         section.produit-info
@@ -12,22 +12,22 @@ mixin produit()
                     source(src="http://webcodetools.com/media/sound.wav" type="audio/wav")
                     | Votre navigateur ne supporte pas le player audio.
         p.prix-produit 27,27€
-        button.ajouter-panier Retirer
+        article.progress-status
+            progress(value=progress, max="100")
+            span En cours
 
 main
     header
         h2#rubrique-title
-            span Votre panier
+            span Suivi de commande
 
-    main#panier
+    main#suivi-commande
 
         ul#liste-produits
 
-            -for(var i = 0; i <= 6; i++) {
-                +produit
+            -for(var i = 4; i >= 1; i--) {
+                +produit((i/4) * 100)
             -}
-        section.validation
-            button.cta.valider-panier: a(href="commande.html") Valider
 
 
 
