@@ -62,7 +62,7 @@ gulp.task('sass', function () {
  */
 gulp.task('pug', function(){
     return gulp.src('_pugFiles/*.pug')
-        .pipe(pug())
+        .pipe(pug({pretty: true}))
         .pipe(gulp.dest('_includes'));
 });
 

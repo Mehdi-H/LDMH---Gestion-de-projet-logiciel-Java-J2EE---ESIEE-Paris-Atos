@@ -647,6 +647,45 @@ body {
     #commande .recapitulatif .valider-panier a {
       color: white; }
 
+#connexion {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  #connexion #modal {
+    margin-top: 1em;
+    background: white;
+    padding: 1em 2em .5em 2em;
+    border: 1px solid #222;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    #connexion #modal .modal-part {
+      padding: 1em;
+      border-bottom: 1px solid rgba(34, 34, 34, 0.5); }
+      #connexion #modal .modal-part:last-child {
+        border: none; }
+    #connexion #modal input {
+      padding-left: .5em; }
+    #connexion #modal button[type="submit"] {
+      padding: 1em;
+      background: #BD5248;
+      color: white; }
+
 #page-header {
   background-color: white;
   padding-top: 1em;
