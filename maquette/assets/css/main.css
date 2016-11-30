@@ -684,7 +684,8 @@ body {
     #connexion #modal button[type="submit"], #inscription #modal button[type="submit"] {
       padding: 1em;
       background: #BD5248;
-      color: white; }
+      color: white;
+      cursor: pointer; }
 
 #mise-a-jour-catalogue {
   display: -webkit-box;
@@ -1004,7 +1005,8 @@ body {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  text-align: center; }
 
 .footer-logo-mmw {
   height: 4em;
