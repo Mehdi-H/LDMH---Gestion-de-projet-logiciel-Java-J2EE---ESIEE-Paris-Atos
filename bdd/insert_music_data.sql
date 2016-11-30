@@ -88,7 +88,7 @@ VALUES
 ## RUBRIQUES
 ##########################################################################
 
-INSERT INTO `rubriques` (nom_rubrique)
+INSERT INTO `rubriques` (label)
 VALUES
     ("Nouveautés"), # 1
     ("R&B"), # 2
@@ -106,30 +106,30 @@ VALUES
 ## CLASSEMENTS
 ##########################################################################
 
-INSERT INTO `classements` (id_produit, id_rubrique)
+INSERT INTO `classements` (id_produit, label_rubrique)
 VALUES
-    (1,2), # Starboy
-    (1,3),
-    (1,1),
-    (2,6), # Bleack Beatles
-    (2,7),
-    (3,8), # Closer
-    (4,2), # I feel it coming
-    (4,3),
-    (5,8), # Lemme luv u
-    (5,9),
-    (6,6), # dont wana no
-    (7,2), # Party monsta
-    (7,3),
-    (8,10), # 24 karat magik
-    (8,6),
-    (8,2),
-    (9,8), # Rockbabye
-    (10,6), # Say u wont let go
-    (11,8), # Apply Cold Water
-    (11,9),
-    (12,6), # Side 2 side
-    (13,6), # Da Greatest Eva
-    (14,7), # Nofake luv
-    (15,2), # Rocky
-    (15,3);
+    (1,"R&B"), # Starboy
+    (1,"Soul"),
+    (1,"Nouveautés"),
+    (2,"Pop"), # Bleack Beatles
+    (2,"Rap"),
+    (3,"Dance"), # Closer
+    (4,"R&B"), # I feel it coming
+    (4,"Soul"),
+    (5,"Dance"), # Lemme luv u
+    (5,"Dancehall"),
+    (6,"Pop"), # dont wana no
+    (7,"R&B"), # Party monsta
+    (7,"Soul"),
+    (8,"Funk"), # 24 karat magik
+    (8,"Pop"),
+    (8,"R&B"),
+    (9,"Dance"), # Rockbabye
+    (10,"Pop"), # Say u wont let go
+    (11,"Dance"), # Apply Cold Water
+    (11,"Dancehall"),
+    (12,"Pop"), # Side 2 side
+    (13,"Pop"), # Da Greatest Eva
+    (14,"Rap"), # Nofake luv
+    (15,"R&B"), # Rocky
+    (15,"Soul");

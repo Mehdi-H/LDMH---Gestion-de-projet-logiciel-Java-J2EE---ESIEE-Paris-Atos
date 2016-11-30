@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Présentation de Multimedia World</title>
 		
-		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="css/main.css">
 	</head>
 	
 	<body>
