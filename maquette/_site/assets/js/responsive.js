@@ -1,0 +1,1 @@
+$(document).on("ready",function(){var e=$("header");e.responsiveHeader()}),function(e){e.fn.responsiveHeader=function(){return e(this).find(".mobile-nav-hamburger").on("click touch",function(){e(this).toggleClass("is-open is-close")}),this}}(jQuery);

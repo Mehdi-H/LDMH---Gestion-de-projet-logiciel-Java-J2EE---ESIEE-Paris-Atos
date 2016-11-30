@@ -1,0 +1,146 @@
+$logo-height: 60px
+
+#page-header
+    background-color: white
+    padding-top: 1em
+    margin: 2em auto
+
+#main-nav
+
+    .nav-items
+
+        &:first-child
+            height: $logo-height * 1.3
+
+.nav-items
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    .item
+        height: $logo-height
+
+.logo-wrapper
+    align-self: flex-start
+
+.logo
+    height: $logo-height * 1.3
+    padding-left: 1em
+    width: auto
+
+#searchbar-wrapper
+    border: 1px solid grey
+    display: flex
+    margin-left: 5em
+
+    &:hover
+        border-color: black
+        cursor: text
+
+    .look
+        appearance: search
+        background-color: white
+        border: none
+        border-left: 0
+        cursor: pointer
+        height: $logo-height
+        outline: 0
+        padding: 0 1em
+        position: relative
+        width: $logo-height
+
+#searchbar
+    border: none
+    height: $logo-height - 6px
+    max-height: $logo-height
+    outline: 0
+    min-width: 5em
+
+    &[type="text"]
+        font-size: 20px
+        text-indent: .5em
+        margin-top: .1em
+
+#icon-pool
+    display: flex
+    margin-left: auto
+
+.icon-wrap
+    a
+        color: black
+        cursor: pointer
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        margin-right: 2em
+
+    &:last-child
+        margin-right: 1em
+
+.icon-text
+    &:first-letter
+        text-transform: capitalize
+
+#page-nav
+    margin-top: .1em
+    .nav-items
+        display: flex
+        width: 100%
+        height: 4em
+
+        .item
+            cursor: pointer
+            display: flex
+            align-items: center
+            justify-content: center
+            text-transform: uppercase
+            font-weight: bold
+            flex: 1
+            position: relative
+
+            a
+                flex: 1
+                align-self: stretch
+                display: flex
+                justify-content: center
+
+                span
+                    align-self: center
+
+            .dropdown
+                background: white
+                position: absolute
+                top: -4em
+                opacity: 0
+                left: 0
+                width: 100%
+                text-align: center
+                z-index: -1
+                transition: z-index .1s, opacity .4s, top 1s
+
+                .item
+                    display: flex
+
+                    &>*
+                        flex: 1
+                        align-self: stretch
+                        display: flex
+                        justify-content: center
+
+                        &>*
+                            align-self: center
+
+                    &:hover
+                        background: #222
+
+            &:hover
+                background: #222
+                color: $accent-color
+                transition: all .4s
+
+                .dropdown
+                    top: 4em
+                    opacity: 1
+                    z-index: 1
+                    transition: all .4s
