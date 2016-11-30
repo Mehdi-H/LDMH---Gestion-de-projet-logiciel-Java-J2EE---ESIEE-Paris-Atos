@@ -1,0 +1,20 @@
+#liste-rubriques-wrap
+    @extend #liste-produits-wrap
+
+    #liste-rubriques
+        @extend #liste-produits
+
+        color: $accent-color
+
+    .produit-head
+        background: grey !important
+        color: pink
+
+    .produit, .produit-head
+        &:hover
+            transform: scale(1) !important
+
+    .cta, select, option
+        cursor: pointer
+
+

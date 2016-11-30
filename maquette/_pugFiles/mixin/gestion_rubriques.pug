@@ -1,0 +1,12 @@
+mixin gestion_rubriques(buttonString, size=4)
+    li.produit
+        //img.audio-cover(src="assets/img/default-audio-cover.png")
+        p Rubrique i
+        select(name="select")
+            -for(var i = 0; i<size; i++) {
+                option(value=i) Position #{i}
+            -}
+        input(placeholder="Renommer ...")
+        button.cta Valider
+        button.cta Supprimer
+

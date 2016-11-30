@@ -16,6 +16,8 @@ mixin produit(progress)
             progress(value=progress, max="100")
             span En cours
 
+include mixin/commande
+
 main
     header
         h2#rubrique-title
@@ -26,7 +28,7 @@ main
         ul#liste-produits
 
             -for(var i = 4; i >= 1; i--) {
-                +produit((i/4) * 100)
+                +commande((i/4) * 100)
             -}
 
 

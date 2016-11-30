@@ -1,0 +1,8 @@
+mixin commande(progress)
+    li.commande
+        p Numéro commande
+        time(datetime="2016-07-27")
+        var 27,27€
+        article.progress-status
+            progress(value=progress, max="100")
+            span En cours

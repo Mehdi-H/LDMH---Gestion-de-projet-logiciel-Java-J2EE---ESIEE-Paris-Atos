@@ -497,7 +497,7 @@ body {
     #presentation .cta a {
       color: #fff; }
 
-#liste-produits-wrap, #panier {
+#liste-produits-wrap, #panier, #liste-rubriques-wrap {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -508,7 +508,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column; }
 
-#liste-produits {
+#liste-produits, #liste-rubriques-wrap #liste-rubriques {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -522,17 +522,19 @@ body {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
-  #liste-produits .produit-info {
+  #liste-produits .produit-info, #liste-rubriques-wrap #liste-rubriques .produit-info {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
-  #liste-produits .produit-info-text {
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    -webkit-box-flex: .7;
+    -webkit-flex: .7;
+        -ms-flex: .7;
+            flex: .7; }
+  #liste-produits .produit-info-text, #liste-rubriques-wrap #liste-rubriques .produit-info-text {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -546,7 +548,7 @@ body {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between; }
-  #liste-produits .produit-info-player {
+  #liste-produits .produit-info-player, #liste-rubriques-wrap #liste-rubriques .produit-info-player {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -555,7 +557,7 @@ body {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  #liste-produits .produit {
+  #liste-produits .produit, #liste-rubriques-wrap #liste-rubriques .produit {
     background: #222;
     display: -webkit-box;
     display: -webkit-flex;
@@ -575,25 +577,26 @@ body {
             justify-content: space-around;
     -webkit-transition: all .2s;
     transition: all .2s; }
-    #liste-produits .produit:hover {
+    #liste-produits .produit:hover, #liste-rubriques-wrap #liste-rubriques .produit:hover {
       -webkit-transform: scale(1.1);
           -ms-transform: scale(1.1);
               transform: scale(1.1);
       -webkit-transition: all .2s;
       transition: all .2s; }
-  #liste-produits .audio-cover {
+  #liste-produits .audio-cover, #liste-rubriques-wrap #liste-rubriques .audio-cover {
     width: 100px;
     height: auto; }
-  #liste-produits .nom-musique,
-  #liste-produits .nom-artiste,
-  #liste-produits .prix-produit {
+  #liste-produits .nom-musique, #liste-rubriques-wrap #liste-rubriques .nom-musique,
+  #liste-produits .nom-artiste, #liste-rubriques-wrap #liste-rubriques .nom-artiste,
+  #liste-produits .prix-produit, #liste-rubriques-wrap #liste-rubriques .prix-produit {
     color: #BD5248;
     font-size: 1.2em; }
-  #liste-produits .audio-controls {
-    cursor: pointer; }
-  #liste-produits .ajouter-panier {
+  #liste-produits .audio-controls, #liste-rubriques-wrap #liste-rubriques .audio-controls {
+    cursor: pointer;
+    width: 8em; }
+  #liste-produits .ajouter-panier, #liste-rubriques-wrap #liste-rubriques .ajouter-panier {
     background: #BD5248;
-    padding: .8em;
+    padding: 0.3em 0.8em;
     -webkit-border-radius: 20px;
             border-radius: 20px;
     border-color: #222;
@@ -754,6 +757,21 @@ body {
   background: yellow;
   color: green;
   background: green; }
+
+#liste-rubriques-wrap #liste-rubriques {
+  color: #BD5248; }
+
+#liste-rubriques-wrap .produit-head {
+  background: grey !important;
+  color: pink; }
+
+#liste-rubriques-wrap .produit:hover, #liste-rubriques-wrap .produit-head:hover {
+  -webkit-transform: scale(1) !important;
+      -ms-transform: scale(1) !important;
+          transform: scale(1) !important; }
+
+#liste-rubriques-wrap .cta, #liste-rubriques-wrap select, #liste-rubriques-wrap option {
+  cursor: pointer; }
 
 #page-header {
   background-color: white;
@@ -1029,3 +1047,7 @@ body {
   margin: 0 auto;
   width: 60%;
   padding-bottom: 5em; }
+
+@media (max-width: 1500px) {
+  body {
+    width: 80%; } }

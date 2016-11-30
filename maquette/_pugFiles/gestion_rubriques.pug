@@ -1,0 +1,25 @@
+include mixin/gestion_rubriques
+
+main
+    header
+        h2#rubrique-title
+            span Gestion des rubriques
+
+    main#liste-rubriques-wrap
+
+        ul#liste-rubriques
+
+            li.produit.produit-head
+                p Rubrique
+                p Position
+                p Renommer
+                p Validation
+                p Suppression
+
+            -var nb_ele = 6;
+            -for(var i = 0; i <= nb_ele; i++) {
+                +gestion_rubriques("+", nb_ele)
+            -}
+
+
+
