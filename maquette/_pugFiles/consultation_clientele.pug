@@ -1,7 +1,11 @@
+include mixin/flash
+
 main
     header
         h2#rubrique-title
             span Consultation de la clientèle
+
+    +flash("warning", "Ce numéro ne correspond à aucun client de la base de données Multimedia World.")
 
     main#liste-rubriques-wrap
 
