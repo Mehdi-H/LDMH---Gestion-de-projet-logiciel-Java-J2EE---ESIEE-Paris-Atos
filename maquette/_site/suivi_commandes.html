@@ -53,37 +53,48 @@
     <h2 id="rubrique-title"><span>Suivi de commande</span></h2>
   </header>
   <main id="suivi-commande">
+    <section>
+      <input id="search-commande" placeholder="Numéro de commande ..."/>
+    </section>
     <ul id="liste-produits">
+      <li class="produit produit-head">
+        <p>Id client</p>
+        <p>Numéro de commande</p>
+        <p>Passée le</p>
+        <p>Prix</p>
+        <p>Statut</p>
+      </li>
+      <!--+commande((i/n) * 100)-->
       <li class="commande">
+        <p>id client</p>
         <p>Numéro commande</p>
-        <time datetime="2016-07-27"></time>
+        <time datetime="2016-07-27">27 juillet 2016</time>
         <var>27,27€</var>
         <article class="progress-status">
-          <progress value="100" max="100"></progress><span>En cours</span>
+          <!--progress(value=progress, max="100")-->
+          <input type="range" value="2" min="0" max="2" step="1"/><span>En cours</span>
         </article>
       </li>
+      <!--+commande((i/n) * 100)-->
       <li class="commande">
+        <p>id client</p>
         <p>Numéro commande</p>
-        <time datetime="2016-07-27"></time>
+        <time datetime="2016-07-27">27 juillet 2016</time>
         <var>27,27€</var>
         <article class="progress-status">
-          <progress value="75" max="100"></progress><span>En cours</span>
+          <!--progress(value=progress, max="100")-->
+          <input type="range" value="2" min="0" max="2" step="1"/><span>En cours</span>
         </article>
       </li>
+      <!--+commande((i/n) * 100)-->
       <li class="commande">
+        <p>id client</p>
         <p>Numéro commande</p>
-        <time datetime="2016-07-27"></time>
+        <time datetime="2016-07-27">27 juillet 2016</time>
         <var>27,27€</var>
         <article class="progress-status">
-          <progress value="50" max="100"></progress><span>En cours</span>
-        </article>
-      </li>
-      <li class="commande">
-        <p>Numéro commande</p>
-        <time datetime="2016-07-27"></time>
-        <var>27,27€</var>
-        <article class="progress-status">
-          <progress value="25" max="100"></progress><span>En cours</span>
+          <!--progress(value=progress, max="100")-->
+          <input type="range" value="2" min="0" max="2" step="1"/><span>En cours</span>
         </article>
       </li>
     </ul>

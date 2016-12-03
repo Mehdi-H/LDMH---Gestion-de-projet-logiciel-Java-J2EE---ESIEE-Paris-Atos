@@ -1,21 +1,3 @@
-mixin produit(progress)
-    li.produit
-        img.audio-cover(src="assets/img/default-audio-cover.png")
-        section.produit-info
-            article.produit-info-text
-                p.nom-musique Nom de la musique
-                p.nom-artiste Nom de l'artiste
-            article.produit-info-player
-                audio.audio-controls(controls)
-                    source(src="http://webcodetools.com/media/sound.ogg" type="audio/ogg")
-                    source(src="http://webcodetools.com/media/sound.mp3" type="audio/mpeg")
-                    source(src="http://webcodetools.com/media/sound.wav" type="audio/wav")
-                    | Votre navigateur ne supporte pas le player audio.
-        p.prix-produit 27,27€
-        article.progress-status
-            progress(value=progress, max="100")
-            span En cours
-
 include mixin/commande
 
 main
@@ -25,10 +7,22 @@ main
 
     main#suivi-commande
 
+        section
+            input#search-commande(placeholder="Numéro de commande ...")
+
         ul#liste-produits
 
-            -for(var i = 4; i >= 1; i--) {
-                +commande((i/4) * 100)
+            li.produit.produit-head
+                p Id client
+                p Numéro de commande
+                p Passée le
+                p Prix
+                p Statut
+
+            - var n = 3;
+            -for(var i = n; i >= 1; i--) {
+                //+commande((i/n) * 100)
+                +commande(n-1)
             -}
 
 

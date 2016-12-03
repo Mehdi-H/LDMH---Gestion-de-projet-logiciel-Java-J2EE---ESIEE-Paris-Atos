@@ -560,7 +560,7 @@ body {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  #liste-produits .produit, #liste-rubriques-wrap #liste-rubriques .produit {
+  #liste-produits .produit, #liste-rubriques-wrap #liste-rubriques .produit, #liste-produits .commande, #liste-rubriques-wrap #liste-rubriques .commande {
     background: #222;
     display: -webkit-box;
     display: -webkit-flex;
@@ -580,7 +580,7 @@ body {
             justify-content: space-around;
     -webkit-transition: all .2s;
     transition: all .2s; }
-    #liste-produits .produit:hover, #liste-rubriques-wrap #liste-rubriques .produit:hover {
+    #liste-produits .produit:hover, #liste-rubriques-wrap #liste-rubriques .produit:hover, #liste-produits .commande:hover, #liste-rubriques-wrap #liste-rubriques .commande:hover {
       -webkit-transform: scale(1.1);
           -ms-transform: scale(1.1);
               transform: scale(1.1);
@@ -761,6 +761,9 @@ body {
         -ms-flex-align: center;
             align-items: center; }
 
+.commande {
+  color: #BD5248; }
+
 .progress-status {
   display: -webkit-box;
   display: -webkit-flex;
@@ -801,17 +804,25 @@ body {
 #liste-rubriques-wrap #liste-rubriques {
   color: #BD5248; }
 
-#liste-rubriques-wrap .produit-head {
-  background: grey !important;
-  color: pink; }
-
-#liste-rubriques-wrap .produit:hover, #liste-rubriques-wrap .produit-head:hover {
+#liste-rubriques-wrap .produit:hover, #liste-rubriques-wrap .commande:hover, #liste-rubriques-wrap .produit-head:hover {
   -webkit-transform: scale(1) !important;
       -ms-transform: scale(1) !important;
           transform: scale(1) !important; }
 
 #liste-rubriques-wrap .cta, #liste-rubriques-wrap select, #liste-rubriques-wrap option {
   cursor: pointer; }
+
+.produit-head {
+  background: grey !important;
+  color: pink;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .produit-head:hover {
+    -webkit-transform: scale(1) !important;
+        -ms-transform: scale(1) !important;
+            transform: scale(1) !important; }
 
 #page-header {
   background-color: white;

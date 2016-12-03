@@ -1,8 +1,10 @@
 mixin commande(progress)
     li.commande
+        p id client
         p Numéro commande
-        time(datetime="2016-07-27")
+        time(datetime="2016-07-27") 27 juillet 2016
         var 27,27€
         article.progress-status
-            progress(value=progress, max="100")
+            //progress(value=progress, max="100")
+            input(type="range", value=progress, min="0", max="2", step="1")
             span En cours
