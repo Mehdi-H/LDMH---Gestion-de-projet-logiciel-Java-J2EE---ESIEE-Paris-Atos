@@ -1,9 +1,13 @@
 include mixin/commande
+include mixin/flash
 
 main
     header
         h2#rubrique-title
             span Suivi de commande
+
+    +flash("success", "Le statut de la commande a été modifié avec succès !")
+    +flash("error", "Une erreur s'est produite lors de la mise à jour du statut d'une commande.")
 
     main#suivi-commande
 

@@ -690,59 +690,49 @@ body {
   #client-cb input:last-child {
     margin-left: 2em; }
 
-#connexion, #inscription {
+#connexion #modal, #inscription #modal {
+  margin-top: 1em;
+  background: white;
+  padding: 1em 2em .5em 2em;
+  border: 1px solid #222;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-  #connexion #modal, #inscription #modal {
-    margin-top: 1em;
-    background: white;
-    padding: 1em 2em .5em 2em;
-    border: 1px solid #222;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    #connexion #modal .modal-part, #inscription #modal .modal-part {
-      padding: 1em;
-      border-bottom: 1px solid rgba(34, 34, 34, 0.5); }
-      #connexion #modal .modal-part:last-child, #inscription #modal .modal-part:last-child {
-        border: none; }
-    #connexion #modal input, #inscription #modal input {
-      padding-left: .5em; }
-    #connexion #modal button[type="submit"], #inscription #modal button[type="submit"] {
-      padding: 1em;
-      background: #BD5248;
-      color: white;
-      cursor: pointer; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
+  margin: 0 auto; }
+  #connexion #modal .modal-part, #inscription #modal .modal-part {
+    padding: 1em;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.5); }
+    #connexion #modal .modal-part:last-child, #inscription #modal .modal-part:last-child {
+      border: none; }
+  #connexion #modal input, #inscription #modal input {
+    padding-left: .5em; }
+  #connexion #modal button[type="submit"], #inscription #modal button[type="submit"] {
+    padding: 1em;
+    background: #BD5248;
+    color: white;
+    cursor: pointer; }
 
 #mise-a-jour-catalogue {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
   #mise-a-jour-catalogue #upload-wrap {
     margin-top: 1em;
     background: white;
@@ -759,7 +749,10 @@ body {
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center; }
 
 .commande {
   color: #BD5248; }
@@ -826,6 +819,36 @@ body {
 
 .produit-add input {
   margin: 1em; }
+
+#all-commandes {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  #all-commandes .num-commande {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 1em;
+    min-width: 33%;
+    max-width: 33%; }
+    #all-commandes .num-commande a {
+      color: #BD5248;
+      text-decoration: underline; }
+      #all-commandes .num-commande a:hover {
+        color: rgba(189, 82, 72, 0.5); }
 
 #page-header {
   background-color: white;

@@ -1,7 +1,12 @@
+include mixin/flash
+
 main
     header
         h2#rubrique-title
             span Inscription
+
+    +flash("error", "Une erreur s'est produite lors de votre inscription.")
+    +flash("error", "Vous n'avez pas rempli tous les champs !")
 
     main#inscription
 

@@ -1,10 +1,13 @@
 include mixin/produit
+include mixin/flash
 
 
 main
     header
         h2#rubrique-title
             span Nouveautés
+
+    +flash("success", "Le produit a été ajouté au panier !")
 
     main#liste-produits-wrap
 

@@ -1,4 +1,5 @@
 include mixin/choix_nouveautes
+include mixin/flash
 
 main
     header
@@ -6,6 +7,9 @@ main
             span Choix des nouveautés
 
     main#liste-rubriques-wrap
+
+        +flash("success", "La nouveauté a été modifiée avec succès !")
+        +flash("error", "Une erreur s'est produite en modifiant la nouveauté.")
 
         section
             input(type="text", placeholder="Numéro produit")#search-produit
@@ -28,7 +32,11 @@ main
 
             hr
 
+
             li: h3 Ajouter un produit dans le top des nouveautés
+
+            +flash("success", "Le produit a été ajouté aux nouveautés avec succès !")
+            +flash("error", "Une erreur s'est produite lors de l'ajout du produit aux nouveautés.")
 
             li.produit.produit-head
                 p Nom produit

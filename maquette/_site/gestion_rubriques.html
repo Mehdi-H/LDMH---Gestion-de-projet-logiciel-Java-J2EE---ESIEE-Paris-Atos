@@ -53,6 +53,12 @@
   <header>
     <h2 id="rubrique-title"><span>Gestion des rubriques</span></h2>
   </header>
+  <section class="flash success">
+    <p>La rubrique a été modifiée avec succès !</p>
+  </section>
+  <section class="flash error">
+    <p>Une erreur s'est produite lors de la modification d'une rubrique.</p>
+  </section>
   <main id="liste-rubriques-wrap">
     <ul id="liste-rubriques">
       <li class="produit produit-head">
@@ -166,6 +172,23 @@
         <input placeholder="Renommer ..."/>
         <button class="cta">Valider</button>
         <button class="cta">Supprimer</button>
+      </li>
+      <hr/>
+      <li>
+        <h3>Ajouter une rubrique</h3>
+      </li>
+      <section class="flash success">
+        <p>La rubrique a été ajoutée avec succès !</p>
+      </section>
+      <section class="flash error">
+        <p>Une erreur s'est produite lors de la création d'une rubrique.</p>
+      </section>
+      <li class="produit produit-head">
+        <p>Nom rubrique</p>
+      </li>
+      <li class="produit produit-add">
+        <input type="text" placeholder="Nom rubrique"/>
+        <input type="sumbit" value="Valider"/>
       </li>
     </ul>
   </main>

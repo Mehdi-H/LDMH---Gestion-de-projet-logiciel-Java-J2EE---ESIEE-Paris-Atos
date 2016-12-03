@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Multimedia World | Connexion</title>
+        <title>Multimedia World | Consultation de la clientele</title>
         <link rel="icon" type="image/ico" href="assets/img/logo-multimedia-world.ico">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="assets/css/main.css">
@@ -50,23 +50,29 @@
         
 <main>
   <header>
-    <h2 id="rubrique-title"><span>Connexion</span></h2>
+    <h2 id="rubrique-title"><span>Consultation de la clientèle</span></h2>
   </header>
-  <main id="connexion">
-    <section class="flash error">
-      <p>Vos identifiants sont incorrects.</p>
+  <main id="liste-rubriques-wrap">
+    <section>
+      <input type="text" placeholder="Numéro client" id="search-produit"/>
     </section>
-    <form id="modal">
-      <article class="modal-part">
-        <input type="text" placeholder="Nom ..."/>
+    <section id="commande-recap">
+      <article id="client-info">
+        <p>Numéro client : #932727</p>
+        <p>Nom : Dupont</p>
+        <p>Prénom : Jean</p>
+        <p>Adresse : 1 bis rue du projet logiciel, 750001 Paris</p>
       </article>
-      <article class="modal-part">
-        <input type="password" placeholder="Password ..."/>
-      </article>
-      <article class="modal-part">
-        <button type="submit">Se connecter</button>
-      </article>
-    </form>
+    </section>
+    <hr/>
+    <h2>Commandes de ce client</h2>
+    <ul id="all-commandes">
+      <li class="num-commande"><a href="#">#XFPSEN000</a></li>
+      <li class="num-commande"><a href="#">#XFPSEN001</a></li>
+      <li class="num-commande"><a href="#">#XFPSEN002</a></li>
+      <li class="num-commande"><a href="#">#XFPSEN003</a></li>
+      <li class="num-commande"><a href="#">#XFPSEN004</a></li>
+    </ul>
   </main>
 </main>
 

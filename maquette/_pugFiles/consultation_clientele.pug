@@ -1,0 +1,29 @@
+main
+    header
+        h2#rubrique-title
+            span Consultation de la clientèle
+
+    main#liste-rubriques-wrap
+
+        section
+            input(type="text", placeholder="Numéro client")#search-produit
+
+        section#commande-recap
+            article#client-info
+                p Numéro client : #932727
+                p Nom : Dupont
+                p Prénom : Jean
+                p Adresse : 1 bis rue du projet logiciel, 750001 Paris
+
+        hr
+
+        h2 Commandes de ce client
+
+        ul#all-commandes
+            -var nb = 5;
+            -for(var i = 0; i<nb; i++){
+                li.num-commande: a(href="#") #XFPSEN00#{i}
+            -}
+
+
+

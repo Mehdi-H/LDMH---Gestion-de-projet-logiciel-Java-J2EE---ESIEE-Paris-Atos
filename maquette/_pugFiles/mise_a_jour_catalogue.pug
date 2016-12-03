@@ -1,10 +1,36 @@
+include mixin/produit
+include mixin/flash
+
 main
     header
         h2#rubrique-title
             span Mise à jour - Catalogue
+
+    +flash("success", "Le catalogue a été importé avec succès !")
+    +flash("error", "Une erreur s'est produite lors de l'import du catalogue.")
 
     main#mise-a-jour-catalogue
 
         section#upload-wrap
             label Déposez un fichier (csv)
             input(type="file", name="file_upload")
+
+        hr
+
+        h2 Catalogue importé
+
+        +flash("info", "Voici un aperçu du catalogue que vous venez d'importer.")
+
+        ul#liste-produits
+
+            li.produit.produit-head
+                p Nom de la musique
+                p Nom de l'artiste
+                p Extrait
+                p Prix
+                p Panier
+
+            -for(var i = 0; i <= 6; i++) {
+                +produit("+")
+            -}
+

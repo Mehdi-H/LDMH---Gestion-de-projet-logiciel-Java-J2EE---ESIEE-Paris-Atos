@@ -1,9 +1,13 @@
+include mixin/flash
+
 main
     header
         h2#rubrique-title
             span Connexion
 
     main#connexion
+
+        +flash("error", "Vos identifiants sont incorrects.")
 
         form#modal
             article.modal-part
