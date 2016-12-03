@@ -375,6 +375,9 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+input[type="number"] {
+  text-align: center; }
+
 body {
   font-family: 'Fira Sans', serif; }
 
@@ -1001,6 +1004,54 @@ body {
     position: relative;
     padding: 0 .5em;
     line-height: 1em; }
+
+@-webkit-keyframes fade-in-flash {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes fade-in-flash {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+.flash {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: grey;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+  -webkit-animation: fade-in-flash 1s;
+          animation: fade-in-flash 1s;
+  color: white;
+  margin-bottom: 2em; }
+  .flash.success {
+    background: #0c0; }
+  .flash.error {
+    background: #c00; }
+  .flash.warning {
+    background: #e59400; }
+  .flash.info {
+    background: #0080ff; }
 
 #page-footer {
   background-color: white;

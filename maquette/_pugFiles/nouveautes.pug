@@ -1,0 +1,17 @@
+include mixin/produit
+
+
+main
+    header
+        h2#rubrique-title
+            span Nouveautés
+
+    main#liste-produits-wrap
+
+        ul#liste-produits
+
+            -for(var i = 0; i <= 6; i++) {
+                +produit("+")
+            -}
+
+

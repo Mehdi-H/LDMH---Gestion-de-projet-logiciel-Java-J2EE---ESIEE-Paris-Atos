@@ -11,3 +11,18 @@ mixin produit(buttonString)
             | Votre navigateur ne supporte pas le player audio.
         p.prix-produit 27,27€
         button.ajouter-panier #{buttonString}
+
+mixin produit_du_panier(buttonString)
+    li.produit
+        //img.audio-cover(src="assets/img/default-audio-cover.png")
+        section.produit-info
+            p.nom-musique Nom de la musique
+            p.nom-artiste Nom de l'artiste
+        audio.audio-controls(controls)
+            source(src="http://webcodetools.com/media/sound.ogg" type="audio/ogg")
+            source(src="http://webcodetools.com/media/sound.mp3" type="audio/mpeg")
+            source(src="http://webcodetools.com/media/sound.wav" type="audio/wav")
+            | Votre navigateur ne supporte pas le player audio.
+        p.prix-produit 27,27€
+        button.ajouter-panier #{buttonString}
+        input(type="number", min="1", max="100", value="1")

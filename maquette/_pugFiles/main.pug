@@ -1,7 +1,22 @@
+include mixin/flash
+include mixin/produit
+
+
 main
     header
         h2#rubrique-title
             span Titre de cette page
 
+    +flash("", "This is a neutral flash message.")
+
+    +flash("success", "Congratulations, Something good happened successfully !")
+
+    +flash("error", "Hm, Something went horribly wrong ...")
+
+    +flash("warning", "Hey, This is a warning !")
+
+    +flash("info", "Look at this marvellous information !")
+
     main
     p Quem offendit cernantur, a malis possumus familiaritatem. Ad in amet cillum  velit. A amet mentitum adipisicing. Legam se quamquam ubi summis, aute do     appellat qui veniam, litteris iis mandaremus in eu labore dolor a cernantur.     Legam mentitum iis singulis. Quo duis commodo proident.
+

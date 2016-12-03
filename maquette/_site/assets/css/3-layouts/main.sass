@@ -23,6 +23,34 @@
         line-height: 1em
 
 
+@keyframes fade-in-flash
+    0%
+        opacity: 0
+        transform: translateY(-1em)
+    100%
+        opacity: 1
+        transform: translateY(0)
 
+.flash
+    flex: 1
+    background: grey
+    display: flex
+    justify-content: center
+    font-weight: bold
+    animation: fade-in-flash 1s
+    color: white
+    margin-bottom: 2em
+
+    &.success
+        background: #0c0
+
+    &.error
+        background: #c00
+
+    &.warning
+        background: #e59400
+
+    &.info
+        background: #0080ff
 
 
