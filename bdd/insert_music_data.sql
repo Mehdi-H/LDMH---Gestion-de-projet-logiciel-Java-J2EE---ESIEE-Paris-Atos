@@ -1,3 +1,6 @@
+###
+ # Exécuter après setup_tables_labels.sql
+###
 
 USE ldmh;
 
@@ -90,17 +93,13 @@ VALUES
 
 INSERT INTO `rubriques` (label)
 VALUES
-    ("Nouveautés"), # 1
-    ("R&B"), # 2
-    ("Soul"), # 3
-    ("Jazz"), # 4
-    ("Classique"), # 5
-    ("Pop"), # 6
-    ("Rap"), # 7
-    ("Dance"), # 8
-    ("Dancehall"), # 9
-    ("Funk"), # 10
-    ("Chansons enfantines"); # 11
+    ("R&B"),
+    ("Soul"),
+    ("Pop"),
+    ("Rap"),
+    ("Dance"),
+    ("Dancehall"),
+    ("Funk");
 
 ##########################################################################
 ## CLASSEMENTS

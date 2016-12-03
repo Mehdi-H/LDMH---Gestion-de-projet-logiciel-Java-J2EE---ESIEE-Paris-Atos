@@ -1,3 +1,6 @@
+###
+ # Exécuter en premier
+###
 
 USE ldmh;
 
@@ -32,7 +35,7 @@ CREATE TABLE `roles` (
 
 CREATE TABLE `users` (
     id_user int NOT NULL AUTO_INCREMENT,
-    label_role varchar(255) NOT NULL,
+    label_role varchar(255) NOT NULL DEFAULT "visiteur",
     nom varchar(255),
     prenom varchar(255),
     adresse varchar(255),
