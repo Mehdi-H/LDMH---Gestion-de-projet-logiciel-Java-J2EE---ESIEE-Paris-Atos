@@ -1130,9 +1130,9 @@ body {
 #page-footer {
   background-color: white;
   border-top: 3px solid black;
-  position: fixed;
-  left: 20%;
-  right: 20%;
+  position: absolute;
+  left: 0;
+  right: 0;
   bottom: 0;
   height: 5em; }
 
@@ -1171,6 +1171,10 @@ body {
           flex-direction: column;
   margin: 0 auto;
   width: 60%;
+  position: relative;
+  min-height: 100vh; }
+
+.page-sections {
   margin-bottom: 7em; }
 
 @media (max-width: 1500px) {
