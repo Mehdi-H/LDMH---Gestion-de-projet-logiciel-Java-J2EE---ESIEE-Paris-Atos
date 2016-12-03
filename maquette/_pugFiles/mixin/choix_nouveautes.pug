@@ -1,0 +1,14 @@
+mixin choix_nouveautes(buttonString, size=4)
+    li.produit
+        //img.audio-cover(src="assets/img/default-audio-cover.png")
+        p Produit i
+        p Produit abc
+        p Artiste efg
+        select(name="select")
+            -for(var i = 0; i<size; i++) {
+                option(value=i) Position #{i}
+            -}
+        input(placeholder="Renommer ...", type="text")
+        button.cta Valider
+        button.cta Supprimer
+

@@ -824,6 +824,9 @@ body {
         -ms-transform: scale(1) !important;
             transform: scale(1) !important; }
 
+.produit-add input {
+  margin: 1em; }
+
 #page-header {
   background-color: white;
   padding-top: 1em;
@@ -1145,7 +1148,7 @@ body {
           flex-direction: column;
   margin: 0 auto;
   width: 60%;
-  padding-bottom: 5em; }
+  margin-bottom: 7em; }
 
 @media (max-width: 1500px) {
   body {

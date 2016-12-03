@@ -1,0 +1,45 @@
+include mixin/choix_nouveautes
+
+main
+    header
+        h2#rubrique-title
+            span Choix des nouveautés
+
+    main#liste-rubriques-wrap
+
+        section
+            input(type="text", placeholder="Numéro produit")#search-produit
+
+        ul#liste-rubriques
+
+            li.produit.produit-head
+                p # produit
+                p Nom produit
+                p Artiste
+                p Position
+                p Renommer
+                p Valider
+                p Supprimer
+
+            -var nb_ele = 6;
+            -for(var i = 0; i <= nb_ele; i++) {
+                +choix_nouveautes("+", nb_ele)
+            -}
+
+            hr
+
+            li: h3 Ajouter un produit dans le top des nouveautés
+
+            li.produit.produit-head
+                p Nom produit
+                p # Artiste
+                p Valider
+
+            li.produit.produit-add
+                input(type="text", placeholder="Nom produit")
+                input(type="text", placeholder="Numéro artiste")
+                input(type="sumbit", value="Valider")
+
+
+
+
