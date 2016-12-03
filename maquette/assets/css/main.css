@@ -653,6 +653,43 @@ body {
     #commande .recapitulatif .valider-panier a, #suivi-commande .recapitulatif .valider-panier a {
       color: white; }
 
+#commande-recap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 4px dashed grey;
+  margin-bottom: 2em;
+  padding: .5em 0; }
+
+#client-info, #client-cb {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+#client-info {
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+
+#client-cb {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  #client-cb input:last-child {
+    margin-left: 2em; }
+
 #connexion, #inscription {
   display: -webkit-box;
   display: -webkit-flex;

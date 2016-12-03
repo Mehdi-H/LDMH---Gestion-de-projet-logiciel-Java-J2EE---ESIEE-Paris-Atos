@@ -4,6 +4,21 @@
     <h2 id="rubrique-title"><span>Votre commande</span></h2>
   </header>
   <main id="commande">
+    <section class="flash warning">
+      <p>En validant cette commande, vous serez débiter du montant indiqué en bas de page.</p>
+    </section>
+    <section id="commande-recap">
+      <article id="client-info">
+        <p>Numéro client : #932727</p>
+        <p>Nom : Dupont</p>
+        <p>Prénom : Jean</p>
+        <p>Adresse : 1 bis rue du projet logiciel, 750001 Paris</p>
+      </article>
+      <article id="client-cb">
+        <label>Votre numéro de CB</label>
+        <input required="true" type="text" pattern="[0-9]{16}" palceholder="Numéro de CB (16 chiffres)"/>
+      </article>
+    </section>
     <ul id="liste-produits">
       <li class="produit">
         <!--img.audio-cover(src="assets/img/default-audio-cover.png")-->

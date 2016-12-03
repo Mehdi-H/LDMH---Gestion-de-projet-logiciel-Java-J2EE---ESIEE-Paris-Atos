@@ -1,9 +1,12 @@
 include mixin/produit
+include mixin/flash
 
 main
     header
         h2#rubrique-title
             span Votre panier
+
+    +flash("info", "Vous pourrez voir un récapitulatif de commande avant le paiement.")
 
     main#panier
 
