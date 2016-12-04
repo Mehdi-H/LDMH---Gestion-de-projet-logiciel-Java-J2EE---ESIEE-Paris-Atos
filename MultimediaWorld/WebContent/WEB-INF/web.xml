@@ -33,6 +33,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>Presentation</servlet-name>
+		<url-pattern>/</url-pattern>
 		<url-pattern>/presentation</url-pattern>
 	</servlet-mapping>
 	

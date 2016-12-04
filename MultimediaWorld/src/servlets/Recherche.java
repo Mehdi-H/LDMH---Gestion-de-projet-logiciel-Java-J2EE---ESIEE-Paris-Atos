@@ -76,7 +76,7 @@ public class Recherche extends HttpServlet
 		
 		// === GENERATION DE LA JSP ===
 		// --- MENUS ---
-		request.setAttribute("_title", "Résultats de la recherche : " + pattern);
+		request.setAttribute("_title", "Résultats de la recherche : \"" + pattern + "\"");
 		request.setAttribute("_rubriques_menu", rubriqueDao.list());
 		
 		// --- JSP ---
