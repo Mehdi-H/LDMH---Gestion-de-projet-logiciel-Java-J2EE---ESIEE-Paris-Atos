@@ -7,32 +7,53 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Presentation
- */
-@WebServlet("/Presentation")
-public class Presentation extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Presentation() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import daos.DaoFactory;
+import daos.UserDao;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+@WebServlet("/Presentation")
+public class Presentation extends HttpServlet 
+{
+	// ========================================================================
+	// == ATTRIBUTS
+	// ========================================================================
+	
+	private static final long serialVersionUID = 1L;
+	
+	// === DAOs ===
+	
+	private UserDao userDao;
+	
+	// ========================================================================
+	// == CONSTRUCTEUR
+	// ========================================================================
+
+    public Presentation() 
+    {
+        super();
+    }
+    
+    // ========================================================================
+ 	// == INIT
+ 	// ========================================================================
+ 	
+    public void init() throws ServletException
+    {
+    	DaoFactory factory = DaoFactory.getInstance();
+    	this.userDao = factory.getUserDao();
+    }
+    
+    // ========================================================================
+ 	// == HTTP
+ 	// ========================================================================
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		request.setAttribute("users", userDao.list());
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/presentation.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

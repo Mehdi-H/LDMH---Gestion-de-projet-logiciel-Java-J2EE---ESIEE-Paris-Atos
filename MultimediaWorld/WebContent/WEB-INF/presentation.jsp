@@ -12,5 +12,11 @@
 		
 		<h1>Coucou</h1>
 		<p>Hey !</p>
+		
+		<ul>
+			<c:forEach var="user" items="${users}">
+				<li>${user.prenom} ${user.nom}</li>
+			</c:forEach>
+		</ul>
 	</body>
 </html>

@@ -91,7 +91,7 @@ VALUES
 ## RUBRIQUES
 ##########################################################################
 
-INSERT INTO `rubriques` (label)
+INSERT INTO `rubriques` (label_rubrique)
 VALUES
     ("R&B"),
     ("Soul"),

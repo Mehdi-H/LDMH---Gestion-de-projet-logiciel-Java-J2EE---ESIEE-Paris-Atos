@@ -26,9 +26,9 @@ drop table if exists `etats`;
 # === ROLES ===
 
 CREATE TABLE `roles` (
-    label varchar(255) NOT NULL UNIQUE,
+    label_role varchar(255) NOT NULL UNIQUE,
 
-    PRIMARY KEY (label)
+    PRIMARY KEY (label_role)
 );
 
 # === USERS ===
@@ -42,7 +42,7 @@ CREATE TABLE `users` (
     mdp_hash varchar(255),
 
     PRIMARY KEY (id_user),
-    FOREIGN KEY (label_role) REFERENCES roles (label)
+    FOREIGN KEY (label_role) REFERENCES roles (label_role)
 );
 
 # === PRODUITS ===
@@ -61,9 +61,9 @@ CREATE TABLE `produits` (
 # Panier, Commandé, Livraison en cours, Livré
 
 CREATE TABLE `etats` (
-	label varchar(255) NOT NULL UNIQUE,
+	label_etat varchar(255) NOT NULL UNIQUE,
 	
-	PRIMARY KEY (label)
+	PRIMARY KEY (label_etat)
 );
 
 # === COMMANDES ===
@@ -73,11 +73,11 @@ CREATE TABLE `commandes` (
     id_user int NOT NULL,
     date_commande date,
     frais_port float,
-    label_etat varchar(255) DEFAULT "Panier",
+    label_etat varchar(255) NOT NULL DEFAULT "Panier",
 
     PRIMARY KEY (id_commande),
     FOREIGN KEY (id_user) REFERENCES users (id_user),
-    FOREIGN KEY (label_etat) REFERENCES etats (label)
+    FOREIGN KEY (label_etat) REFERENCES etats (label_etat)
 );
 
 # === COMMANDITES ===
@@ -96,9 +96,10 @@ CREATE TABLE `commandites` (
 # === RUBRIQUES ===
 
 CREATE TABLE `rubriques` (
-    label varchar(255) UNIQUE NOT NULL,
+    label_rubrique varchar(255) UNIQUE NOT NULL,
+    place_menu int DEFAULT -1,
 
-    PRIMARY KEY (label)
+    PRIMARY KEY (label_rubrique)
 );
 
 # === CLASSEMENTS ===
@@ -109,7 +110,7 @@ CREATE TABLE `classements` (
 
     PRIMARY KEY (id_produit, label_rubrique),
     FOREIGN KEY (id_produit) REFERENCES produits (id_produit),
-    FOREIGN KEY (label_rubrique) REFERENCES rubriques (label)
+    FOREIGN KEY (label_rubrique) REFERENCES rubriques (label_rubrique)
 );
 
 # === ARTISTES ===
