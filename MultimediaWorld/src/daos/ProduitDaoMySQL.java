@@ -182,7 +182,7 @@ public class ProduitDaoMySQL implements ProduitDao
 				"SELECT * FROM produits "
 				+ "NATURAL JOIN (participations NATURAL JOIN artistes) "
 				+ "NATURAL JOIN (classements NATURAL JOIN rubriques) "
-				+ "WHERE nom_produit LIKE '%an%' OR nom_artiste LIKE '%an%' OR label_rubrique LIKE '%an%' "
+				+ "WHERE nom_produit LIKE ? OR nom_artiste LIKE ? OR label_rubrique LIKE ? "
 				+ "GROUP BY produits.id_produit;"
 			);
 			req.setString(1, "%" + pattern + "%");

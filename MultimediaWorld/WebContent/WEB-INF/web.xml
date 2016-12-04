@@ -21,6 +21,11 @@
 		<servlet-name>Rubrique</servlet-name>
 		<servlet-class>servlets.Rubrique</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>Recherche</servlet-name>
+		<servlet-class>servlets.Recherche</servlet-class>
+	</servlet>
   
   	<!-- =================================================================================
 	== ROUTES
@@ -35,5 +40,9 @@
 		<servlet-name>Rubrique</servlet-name>
 		<url-pattern>/rubriques/*</url-pattern>
 	</servlet-mapping>
-	
+
+	<servlet-mapping>
+		<servlet-name>Recherche</servlet-name>
+		<url-pattern>/recherche</url-pattern>
+	</servlet-mapping>	
 </web-app>

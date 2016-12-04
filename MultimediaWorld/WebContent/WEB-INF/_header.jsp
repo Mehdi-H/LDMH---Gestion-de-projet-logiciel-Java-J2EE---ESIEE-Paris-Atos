@@ -9,8 +9,8 @@
 			
 			<%-- BARRE DE RECHERCHE --%>
 			<li class="item" id="searchbar-wrapper">
-				<form action="<%= _accueil %>/recherche" method="POST">
-					<input id="searchbar" type="text" placeholder="Recherche ..."/>
+				<form action="<%= _accueil %>/recherche" method="GET">
+					<input id="searchbar" type="text" name="search" placeholder="Recherche ..."/>
 					<button class="look" type="submit"><i class="fa fa-2x fa-search"></i></button>
 				</form>
 			</li>
@@ -32,7 +32,7 @@
 		<ul class="nav-items">
 			
 			<%-- NOUVEAUTÉS --%>
-			<li class="item"><a href="<%= _accueil %>/nouveautes"><span>Nouveautés</span></a></li>
+			<li class="item"><a href="<%= _accueil %>/rubriques/Nouveautés"><span>Nouveautés</span></a></li>
 			
 			<%-- RUBRIQUES --%>
 			<li class="item dropdown-on-hover">Rubriques
