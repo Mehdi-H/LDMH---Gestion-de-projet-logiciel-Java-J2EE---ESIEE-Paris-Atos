@@ -1,12 +1,15 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.Produit;
 import daos.DaoFactory;
 import daos.ProduitDao;
 import daos.RubriqueDao;
@@ -59,9 +62,9 @@ public class Rubrique extends HttpServlet
 	{
 		// === PARAMETRES DE LA REQUETE ===
 		
-		String path = request.getPathInfo(); // "/rubrique/<label>/<?>"
-		String[] pathParts = path.split("/"); // {"", "rubrique", "<label>", "<?>", ...}
-		String rubriqueLabel = pathParts[2]; // "<label>"
+		String path = request.getPathInfo(); // "/<label>(/...)"
+		String[] pathParts = path.split("/"); // {"", "<label>", ...}
+		String rubriqueLabel = pathParts[1]; // "<label>"
 		
 		// === MENUS ===
 		
@@ -70,7 +73,12 @@ public class Rubrique extends HttpServlet
 		
 		// === Liste des produits de la rubrique ===
 		
-		request.setAttribute("produits", produitDao.listByRubrique(rubriqueLabel));
+		List<Produit> produits = produitDao.listByRubrique(rubriqueLabel);
+		for (Produit pdt : produits) {
+			pdt.setArtistes(produitDao.listArtistes(pdt.getId_produit()));
+		}
+		
+		request.setAttribute("produits", produits);
 		
 		// === GENERATION DE LA JSP ===
 		

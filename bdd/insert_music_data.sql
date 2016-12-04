@@ -91,15 +91,15 @@ VALUES
 ## RUBRIQUES
 ##########################################################################
 
-INSERT INTO `rubriques` (label_rubrique)
+INSERT INTO `rubriques` (label_rubrique, place_menu)
 VALUES
-    ("R&B"),
-    ("Soul"),
-    ("Pop"),
-    ("Rap"),
-    ("Dance"),
-    ("Dancehall"),
-    ("Funk");
+    ("R&B", 1),
+    ("Soul", 2),
+    ("Pop", 3),
+    ("Rap", 4),
+    ("Dance", 5),
+    ("Dancehall", 6),
+    ("Funk", 7);
 
 ##########################################################################
 ## CLASSEMENTS

@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8" %>
+
 <%-- HEAD & HEADER --%>
 <%@ include file="_head.jsp" %>
 
@@ -12,26 +14,8 @@
 		</li>
 		
 		<c:forEach items="${ produits }" var="pdt">
-			<li class="produit">
-				<section class="produit-info">
-					<p class="nom-musique">${ produit.nom_produit }</p>
-					<p class="nom-artiste">
-						"CHERCHER ARTISTES"
-					</p>
-				</section>
-				
-				<audio class="audio-controls" controls="controls">
-					<source src="http://webcodetools.com/media/sound.ogg" type="audio/ogg"/>
-					<source src="http://webcodetools.com/media/sound.mp3" type="audio/mpeg"/>
-					<source src="http://webcodetools.com/media/sound.wav" type="audio/wav"/>
-					<span>Votre navigateur ne supporte pas le player audio.</span>
-				</audio>
-				
-				<p class="prix-produit">${ produit.prix }</p>
-				<button class="ajouter-panier">+</button>
-			</li>
+			<%@ include file="__produit_liste.jsp" %>
 		</c:forEach>
-		
 	</ul>
 </main>
 

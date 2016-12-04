@@ -16,11 +16,11 @@
 		</title>
 		
 		<%-- ICON --%>
-		<link rel="icon" type="image/ico" href="assets/img/logo-multimedia-world.ico">
+		<link rel="icon" type="image/ico" href="<%= _accueil %>/assets/img/logo-multimedia-world.ico">
 		
 		<%-- CSS --%>
-		<link rel="stylesheet" href="assets/css/main.css">
-		<link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="<%= _accueil %>/assets/css/main.css">
+		<link rel="stylesheet" href="<%= _accueil %>/assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
 		
 	</head>
 	<body>

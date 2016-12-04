@@ -5,7 +5,7 @@
 		<ul class="nav-items">
 
 			<%-- LOGO ACCUEIL --%>
-			<li class="item logo-wrapper"><a href="<%= _accueil %>"><img class="logo" src="assets/img/logo-multimedia-world.png"/></a></li>
+			<li class="item logo-wrapper"><a href="<%= _accueil %>"><img class="logo" src="<%= _accueil %>/assets/img/logo-multimedia-world.png"/></a></li>
 			
 			<%-- BARRE DE RECHERCHE --%>
 			<li class="item" id="searchbar-wrapper">

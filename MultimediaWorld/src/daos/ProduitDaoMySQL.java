@@ -144,7 +144,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		try {
 			conn = factory.getConnection();
 			
-			req = conn.prepareStatement("SELECT * FROM produits JOIN classements ON produits.id_produit = classements.id_produit WHERE classements.label_rubrique = ?");
+			req = conn.prepareStatement("SELECT * FROM produits NATURAL JOIN classements WHERE classements.label_rubrique = ?");
 			req.setString(1, label_rubrique);
 			
 			result = req.executeQuery();

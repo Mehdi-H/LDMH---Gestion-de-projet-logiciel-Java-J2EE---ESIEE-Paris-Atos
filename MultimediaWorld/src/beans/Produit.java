@@ -1,5 +1,7 @@
 package beans;
 
+import java.util.List;
+
 public class Produit 
 {
 	// ========================================================================
@@ -15,6 +17,8 @@ public class Produit
 		date_sortie;
 	
 	private float prix;
+	
+	private List<Artiste> artistes;
 
 	// ========================================================================
 	// == GETTERS & SETTERS
@@ -53,5 +57,12 @@ public class Produit
 	}
 	public void setPrix(float prix) {
 		this.prix = prix;
+	}
+	
+	public List<Artiste> getArtistes() {
+		return artistes;
+	}
+	public void setArtistes(List<Artiste> artistes) {
+		this.artistes = artistes;
 	}
 }
