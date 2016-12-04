@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Présentation de Multimedia World</title>
-		
-		<link rel="stylesheet" href="assets/css/main.css">
-	</head>
+<%-- HEAD & HEADER --%>
+<%@ include file="_head.jsp" %>
+
+<main id="presentation">
+	<p>
+		Multimedia World, le leader mondial de la vente de CD et de DVD.
+	</p>
 	
-	<body>
-		<%@ include file="header.jsp" %>
-		
-		<h1>Coucou</h1>
-		<p>Hey !</p>
-		
-		<ul>
-			<c:forEach var="user" items="${users}">
-				<li>${user.prenom} ${user.nom}</li>
-			</c:forEach>
-		</ul>
-	</body>
-</html>
+	<button class="cta">
+		<a href="#">
+			Parcourir
+		</a>
+	</button>
+</main>
+
+<%-- FOOTER & FOOT --%>
+<%@ include file="_foot.jsp" %>

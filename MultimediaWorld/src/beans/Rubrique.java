@@ -26,4 +26,12 @@ public class Rubrique
 	public void setPlace_menu(int place_menu) {
 		this.place_menu = place_menu;
 	}
+	
+	// ========================================================================
+	// == METHODES
+	// ========================================================================
+
+	public boolean display() {
+		return this.place_menu > -1;
+	}
 }

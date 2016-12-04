@@ -136,7 +136,7 @@ public class RubriqueDaoMySQL implements RubriqueDao
 		try {
 			conn = factory.getConnection();
 			
-			req = conn.prepareStatement("SELECT * FROM rubriques");
+			req = conn.prepareStatement("SELECT * FROM rubriques ORDER BY place_menu");
 			result = req.executeQuery();
 			
 			// --- Stocker la liste des rubriques ---

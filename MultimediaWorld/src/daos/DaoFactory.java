@@ -57,8 +57,19 @@ public class DaoFactory
 	// == DAOs
 	// ========================================================================
 	
-	public UserDao getUserDao()
-	{
+	public ArtisteDao getArtisteDao() {
+		return new ArtisteDaoMySQL(this);
+	}
+	public CommandeDao getCommandeDao() {
+		return new CommandeDaoMySQL(this);
+	}
+	public ProduitDao getProduitDao() {
+		return new ProduitDaoMySQL(this);
+	}
+	public RubriqueDao getRubriqueDao() {
+		return new RubriqueDaoMySQL(this);
+	}
+	public UserDao getUserDao() {
 		return new UserDaoMySQL(this);
 	}
 }
