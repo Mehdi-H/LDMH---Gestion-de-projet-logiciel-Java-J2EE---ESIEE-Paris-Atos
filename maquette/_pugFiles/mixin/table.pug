@@ -1,0 +1,27 @@
+mixin audio()
+    audio.audio-controls(controls)
+        source(src="http://webcodetools.com/media/sound.ogg" type="audio/ogg")
+        source(src="http://webcodetools.com/media/sound.mp3" type="audio/mpeg")
+        source(src="http://webcodetools.com/media/sound.wav" type="audio/wav")
+        | Votre navigateur ne supporte pas le player audio.
+
+mixin button(buttonString)
+    button.ajouter-panier #{buttonString}
+
+mixin table(titleArray, arrayOfArraysOfContent)
+
+    table.table-liste
+
+        tr.header-row
+            each title in titleArray
+                th(scope="col")=title
+
+        each arrayOfContent in arrayOfArraysOfContent
+            tr.content-row
+                each content in arrayOfContent
+                    if(content == "_audio")
+                        td: +audio
+                    else if(content == "_button")
+                        td: +button("+")
+                    else
+                        td=content

@@ -1,0 +1,24 @@
+include mixin/table
+
+main
+    header
+        h2#rubrique-title
+            span Titres musicaux
+
+    main#liste-produits-wrap
+
+        +table([
+            "Nom de la musique",
+            "Nom de l'artise",
+            "Extrait",
+            "Prix",
+            "Panier"
+        ],
+            [
+                ["Nom de la musique", "Nom de l'artise", "_audio", "2,27€", "_button"]
+                ,["Nom de la musique", "Nom de l'artise", "_audio", "2,27€", "_button"]
+                ,["Nom de la musique", "Nom de l'artise", "_audio", "2,27€", "_button"]
+        ])
+
+
+

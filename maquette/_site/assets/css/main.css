@@ -525,86 +525,94 @@ body {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
-  #liste-produits .produit-info, #liste-rubriques-wrap #liste-rubriques .produit-info {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-    -webkit-box-flex: .7;
-    -webkit-flex: .7;
-        -ms-flex: .7;
-            flex: .7; }
-  #liste-produits .produit-info-text, #liste-rubriques-wrap #liste-rubriques .produit-info-text {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
-  #liste-produits .produit-info-player, #liste-rubriques-wrap #liste-rubriques .produit-info-player {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-  #liste-produits .produit, #liste-rubriques-wrap #liste-rubriques .produit, #liste-produits .commande, #liste-rubriques-wrap #liste-rubriques .commande {
-    background: #222;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+
+.produit-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-box-flex: .7;
+  -webkit-flex: .7;
+      -ms-flex: .7;
+          flex: .7; }
+
+.produit-info-text {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.produit-info-player {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.produit, .commande {
+  background: #222;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-transition: all .2s;
+  transition: all .2s; }
+  .produit:hover, .commande:hover {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
     -webkit-transition: all .2s;
     transition: all .2s; }
-    #liste-produits .produit:hover, #liste-rubriques-wrap #liste-rubriques .produit:hover, #liste-produits .commande:hover, #liste-rubriques-wrap #liste-rubriques .commande:hover {
-      -webkit-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-              transform: scale(1.1);
-      -webkit-transition: all .2s;
-      transition: all .2s; }
-  #liste-produits .audio-cover, #liste-rubriques-wrap #liste-rubriques .audio-cover {
-    width: 100px;
-    height: auto; }
-  #liste-produits .nom-musique, #liste-rubriques-wrap #liste-rubriques .nom-musique,
-  #liste-produits .nom-artiste, #liste-rubriques-wrap #liste-rubriques .nom-artiste,
-  #liste-produits .prix-produit, #liste-rubriques-wrap #liste-rubriques .prix-produit {
-    color: #BD5248;
-    font-size: 1.2em; }
-  #liste-produits .audio-controls, #liste-rubriques-wrap #liste-rubriques .audio-controls {
-    cursor: pointer;
-    width: 8em; }
-  #liste-produits .ajouter-panier, #liste-rubriques-wrap #liste-rubriques .ajouter-panier {
-    background: #BD5248;
-    padding: 0.3em 0.8em;
-    -webkit-border-radius: 20px;
-            border-radius: 20px;
-    border-color: #222;
-    color: white;
-    cursor: pointer; }
+
+.audio-cover {
+  width: 100px;
+  height: auto; }
+
+.nom-musique,
+.nom-artiste,
+.prix-produit {
+  color: #BD5248;
+  font-size: 1.2em; }
+
+.audio-controls {
+  cursor: pointer;
+  width: 8em; }
+
+.ajouter-panier {
+  background: #BD5248;
+  padding: 0.3em 0.8em;
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+  border-color: #222;
+  color: white;
+  cursor: pointer; }
 
 .rubriques-separator {
   border-color: #BD5248;
@@ -849,6 +857,24 @@ body {
       text-decoration: underline; }
       #all-commandes .num-commande a:hover {
         color: rgba(189, 82, 72, 0.5); }
+
+.table-liste {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em; }
+  .table-liste tr {
+    background: #222;
+    color: #BD5248; }
+  .table-liste .header-row {
+    color: pink;
+    background: rgba(34, 34, 34, 0.5); }
+  .table-liste td, .table-liste th {
+    text-align: center;
+    padding: 1em 0; }
+  .table-liste audio {
+    max-width: 50%; }
 
 #page-header {
   background-color: white;

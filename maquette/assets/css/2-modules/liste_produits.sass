@@ -7,52 +7,52 @@
     flex-direction: column
     flex: 1
 
-    .produit-info
-        display: flex
-        justify-content: space-around
-        flex: .7
+.produit-info
+    display: flex
+    justify-content: space-around
+    flex: .7
 
-    .produit-info-text
-        display: flex
-        flex-direction: row
-        justify-content: space-between
+.produit-info-text
+    display: flex
+    flex-direction: row
+    justify-content: space-between
 
-    .produit-info-player
-        display: flex
-        justify-content: center
+.produit-info-player
+    display: flex
+    justify-content: center
 
-    .produit
-        background:#222
-        display: flex
-        flex-direction: row
-        align-items: center
-        justify-content: space-around
+.produit
+    background:#222
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-around
+    transition: all .2s
+
+    &:hover
+        transform: scale(1.1)
         transition: all .2s
 
-        &:hover
-            transform: scale(1.1)
-            transition: all .2s
+.audio-cover
+    width: 100px
+    height: auto
 
-    .audio-cover
-        width: 100px
-        height: auto
+.nom-musique,
+.nom-artiste,
+.prix-produit
+    color: $accent-color
+    font:
+        size: 1.2em
 
-    .nom-musique,
-    .nom-artiste,
-    .prix-produit
-        color: $accent-color
-        font:
-            size: 1.2em
+.audio-controls
+    cursor: pointer
+    width: 8em
 
-    .audio-controls
-        cursor: pointer
-        width: 8em
-
-    .ajouter-panier
-        background: $accent-color
-        padding: 0.3em.8em
-        border-radius: 20px
-        border-color: #222
-        color: white
-        cursor: pointer
+.ajouter-panier
+    background: $accent-color
+    padding: 0.3em.8em
+    border-radius: 20px
+    border-color: #222
+    color: white
+    cursor: pointer
 
