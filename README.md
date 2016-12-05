@@ -1,6 +1,6 @@
 # LDMH - Gestion de projet logiciel - ESIEE Paris - Atos
 
-## @Author
+## @Authors
 
 - Léo Dupont
 - Mehdi Houacine
