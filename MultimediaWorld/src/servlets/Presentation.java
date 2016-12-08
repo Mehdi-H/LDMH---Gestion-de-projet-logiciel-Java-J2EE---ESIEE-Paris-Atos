@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import daos.DaoFactory;
 import daos.RubriqueDao;
 import daos.UserDao;
+import helpers.RequestHelpers;
 
 
 @WebServlet("/Presentation")
@@ -41,9 +42,8 @@ public class Presentation extends HttpServlet
  	
     public void init() throws ServletException
     {
-    	DaoFactory factory = DaoFactory.getInstance();
-    	this.userDao = factory.getUserDao();
-    	this.rubriqueDao = factory.getRubriqueDao();
+    	this.userDao = DaoFactory.getUserDao();
+    	this.rubriqueDao = DaoFactory.getRubriqueDao();
     }
     
     // ========================================================================
@@ -52,14 +52,9 @@ public class Presentation extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		// === MENUS ===
-		
-		request.setAttribute("_title", "Présentation");
-		request.setAttribute("_rubriques_menu", rubriqueDao.list());
-		
-		
 		// === GENERATION DE LA JSP ===
 		
+		RequestHelpers.setUsualAttributes(request, "Présentation de Multimedia World");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/presentation.jsp").forward(request, response);
 	}
 

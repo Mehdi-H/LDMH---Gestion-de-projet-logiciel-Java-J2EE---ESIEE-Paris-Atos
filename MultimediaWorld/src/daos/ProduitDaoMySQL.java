@@ -13,23 +13,7 @@ import beans.Produit;
 import beans.Rubrique;
 
 public class ProduitDaoMySQL implements ProduitDao 
-{
-	// ========================================================================
-	// == ATTRIBUTS
-	// ========================================================================
-	
-	private DaoFactory factory;
-	
-	// ========================================================================
-	// == CONSTRUCTEUR
-	// ========================================================================
-	
-	ProduitDaoMySQL(final DaoFactory factory)
-	{
-		this.factory = factory;
-	}
-	
-	// ========================================================================
+{// ========================================================================
 	// == METHODES BDD
 	// ========================================================================
 	
@@ -45,7 +29,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("INSERT INTO produits(nom_produit, date_sortie, stock, prix) VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, nom_produit);
@@ -80,7 +64,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("DELETE FROM produits WHERE id_produit = ?");
 			req.setInt(1, id_produit);
@@ -108,7 +92,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM rubriques WHERE label_rubrique = ?");
 			req.setInt(1, id_produit);
@@ -142,7 +126,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM produits NATURAL JOIN classements WHERE classements.label_rubrique = ?");
 			req.setString(1, label_rubrique);
@@ -176,7 +160,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement(
 				"SELECT * FROM produits "
@@ -219,7 +203,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("UPDATE produits SET stock = ? WHERE id_produit = ?");
 			req.setInt(1, stock);
@@ -243,7 +227,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("UPDATE produits SET prix = ? WHERE id_produit = ?");
 			req.setFloat(1, prix);
@@ -271,7 +255,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("INSERT INTO classements(id_produit, label_rubrique) VALUES (?,?)");
 			req.setInt(1, id_produit);
@@ -295,7 +279,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("DELETE FROM classements WHERE id_produit = ? AND label_rubrique = ?");
 			req.setInt(1, id_produit);
@@ -322,7 +306,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM classements NATURAL JOIN rubriques WHERE id_produit = ?");
 			req.setInt(1, id_produit);
@@ -359,7 +343,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("INSERT INTO participations(id_produit, id_artiste) VALUES (?,?)");
 			req.setInt(1, id_produit);
@@ -383,7 +367,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("DELETE FROM participations WHERE id_produit = ? AND id_artiste = ?");
 			req.setInt(1, id_produit);
@@ -410,7 +394,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM participations NATURAL JOIN artistes WHERE id_produit = ?");
 			req.setInt(1, id_produit);

@@ -13,21 +13,6 @@ import beans.Rubrique;
 public class RubriqueDaoMySQL implements RubriqueDao
 {
 	// ========================================================================
-	// == ATTRIBUTS
-	// ========================================================================
-	
-	private DaoFactory factory;
-	
-	// ========================================================================
-	// == CONSTRUCTEUR
-	// ========================================================================
-	
-	RubriqueDaoMySQL(final DaoFactory factory)
-	{
-		this.factory = factory;
-	}
-	
-	// ========================================================================
 	// == METHODES BDD
 	// ========================================================================
 	
@@ -43,7 +28,7 @@ public class RubriqueDaoMySQL implements RubriqueDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("INSERT INTO rubriques(label_rubrique, place_menu) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, nom_rubrique);
@@ -76,7 +61,7 @@ public class RubriqueDaoMySQL implements RubriqueDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("DELETE FROM rubriques WHERE label_rubrique = ?");
 			req.setString(1, nom_rubrique);
@@ -100,7 +85,7 @@ public class RubriqueDaoMySQL implements RubriqueDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM rubriques WHERE label_rubrique = ?");
 			req.setString(1, nom_rubrique);
@@ -134,7 +119,7 @@ public class RubriqueDaoMySQL implements RubriqueDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM rubriques ORDER BY place_menu");
 			result = req.executeQuery();

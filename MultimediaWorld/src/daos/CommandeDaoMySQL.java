@@ -15,21 +15,6 @@ import beans.Etat;
 public class CommandeDaoMySQL implements CommandeDao 
 {
 	// ========================================================================
-	// == ATTRIBUTS
-	// ========================================================================
-	
-	private DaoFactory factory;
-	
-	// ========================================================================
-	// == CONSTRUCTEUR
-	// ========================================================================
-	
-	CommandeDaoMySQL(final DaoFactory factory)
-	{
-		this.factory = factory;
-	}
-	
-	// ========================================================================
 	// == METHODES BDD
 	// ========================================================================
 	
@@ -45,7 +30,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("INSERT INTO commandes(id_user, label_etat) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);
 			req.setInt(1, id_user);
@@ -82,7 +67,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM commandes WHERE id_commande = ?");
 			req.setInt(1, id);
@@ -117,7 +102,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM commandes WHERE id_user = ?");
 			req.setInt(1, id_user);
@@ -153,7 +138,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("UPDATE commandes SET label_etat = ? WHERE id_commande = ?");
 			req.setString(1, label_etat);
@@ -177,7 +162,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("UPDATE commandes SET date_commande = ? WHERE id_commande = ?");
 			req.setString(1, date);
@@ -201,7 +186,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("UPDATE commandes SET frais_port = ? WHERE id_commande = ?");
 			req.setFloat(1, frais);
@@ -233,7 +218,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			// --- Calculer le total de la commande ---
 			
@@ -272,7 +257,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("INSERT INTO commandites(id_commande, id_produit, quantite, prix_unitaire) VALUES (?,?,?,?)");
 			req.setInt(1, id_commande);
@@ -298,7 +283,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("DELETE FROM commandites WHERE id_commande = ? AND id_produit = ?");
 			req.setInt(1, id_commande);
@@ -322,7 +307,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("UPDATE commandites SET quantite = ? WHERE id_commande = ? AND id_produit = ?");
 			req.setInt(1, quantite);
@@ -350,7 +335,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("SELECT * FROM commandites WHERE id_commande = ?");
 			req.setInt(1, id_commande);

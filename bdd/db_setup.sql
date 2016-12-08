@@ -34,14 +34,14 @@ CREATE TABLE `roles` (
 # === USERS ===
 
 CREATE TABLE `users` (
-    id_user int NOT NULL AUTO_INCREMENT,
+    username varchar(255) NOT NULL,
     label_role varchar(255) NOT NULL DEFAULT "visiteur",
     nom varchar(255),
     prenom varchar(255),
     adresse varchar(255),
     mdp_hash varchar(255),
 
-    PRIMARY KEY (id_user),
+    PRIMARY KEY (username),
     FOREIGN KEY (label_role) REFERENCES roles (label_role)
 );
 
@@ -70,13 +70,13 @@ CREATE TABLE `etats` (
 
 CREATE TABLE `commandes` (
     id_commande int NOT NULL AUTO_INCREMENT,
-    id_user int NOT NULL,
+    username varchar(255) NOT NULL,
     date_commande date,
     frais_port float,
     label_etat varchar(255) NOT NULL DEFAULT "Panier",
 
     PRIMARY KEY (id_commande),
-    FOREIGN KEY (id_user) REFERENCES users (id_user),
+    FOREIGN KEY (username) REFERENCES users (username),
     FOREIGN KEY (label_etat) REFERENCES etats (label_etat)
 );
 

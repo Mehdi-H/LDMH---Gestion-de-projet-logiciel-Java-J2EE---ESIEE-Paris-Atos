@@ -6,8 +6,9 @@ public class User
 	// == CHAMPS
 	// ========================================================================
 	
-	private int id;
-	private String 
+	private String
+		username,
+		role,
 		nom,
 		prenom,
 		adresse,
@@ -17,11 +18,18 @@ public class User
 	// == GETTERS & SETTERS
 	// ========================================================================
 	
-	public int getId() {
-		return id;
+	public String getUsername() {
+		return username;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	public String getNom() {

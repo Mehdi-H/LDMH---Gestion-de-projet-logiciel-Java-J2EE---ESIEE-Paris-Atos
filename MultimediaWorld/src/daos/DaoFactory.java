@@ -4,39 +4,29 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DaoFactory 
+public abstract class DaoFactory 
 {
 	// ========================================================================
 	// == ATTRIBUTS
 	// ========================================================================
-
-	private String 
-		url, 
-		username, 
-		password;
 
 	private final static String 
 		DB_URL = "jdbc:mysql://localhost:3306/ldmh",
 		DB_USERNAME = "user",
 		DB_PASSWORD = "user";
 	
+	private static Connection CONNECTION;
+	
 	// ========================================================================
-	// == CONSTRUCTEUR
+	// == CONNEXION
 	// ========================================================================
 	
-	DaoFactory(final String url, final String username, final String password)
+	public static Connection getConnection() throws SQLException
 	{
-		this.url = url;
-		this.username = username;
-		this.password = password;
-	}
-	
-	// ========================================================================
-	// == CONNEXION & INSTANCIATION
-	// ========================================================================
-	
-	public static DaoFactory getInstance()
-	{
+		if (CONNECTION != null) {
+			return CONNECTION;
+		}
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -45,31 +35,26 @@ public class DaoFactory
 			return null;
 		}
 		
-		return new DaoFactory(DB_URL, DB_USERNAME, DB_PASSWORD);
-	}
-	
-	public Connection getConnection() throws SQLException
-	{
-		return DriverManager.getConnection(url, username, password);
+		return DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
 	}
 	
 	// ========================================================================
 	// == DAOs
 	// ========================================================================
 	
-	public ArtisteDao getArtisteDao() {
-		return new ArtisteDaoMySQL(this);
+	public static ArtisteDao getArtisteDao() {
+		return new ArtisteDaoMySQL();
 	}
-	public CommandeDao getCommandeDao() {
-		return new CommandeDaoMySQL(this);
+	public static CommandeDao getCommandeDao() {
+		return new CommandeDaoMySQL();
 	}
-	public ProduitDao getProduitDao() {
-		return new ProduitDaoMySQL(this);
+	public static ProduitDao getProduitDao() {
+		return new ProduitDaoMySQL();
 	}
-	public RubriqueDao getRubriqueDao() {
-		return new RubriqueDaoMySQL(this);
+	public static RubriqueDao getRubriqueDao() {
+		return new RubriqueDaoMySQL();
 	}
-	public UserDao getUserDao() {
-		return new UserDaoMySQL(this);
+	public static UserDao getUserDao() {
+		return new UserDaoMySQL();
 	}
 }

@@ -14,6 +14,7 @@ import daos.DaoFactory;
 import daos.ProduitDao;
 import daos.RubriqueDao;
 import daos.UserDao;
+import helpers.RequestHelpers;
 
 /**
  * Servlet implementation class Recherche
@@ -48,10 +49,9 @@ public class Recherche extends HttpServlet
  	
     public void init() throws ServletException
     {
-    	DaoFactory factory = DaoFactory.getInstance();
-    	this.userDao = factory.getUserDao();
-    	this.rubriqueDao = factory.getRubriqueDao();
-    	this.produitDao = factory.getProduitDao();
+    	this.userDao = DaoFactory.getUserDao();
+    	this.rubriqueDao = DaoFactory.getRubriqueDao();
+    	this.produitDao = DaoFactory.getProduitDao();
     }
     
     // ========================================================================
@@ -68,18 +68,15 @@ public class Recherche extends HttpServlet
 		
 		List<Produit> produits = produitDao.search(pattern);
 		for (Produit pdt : produits) {
-			pdt.setArtistes(produitDao.listArtistes(pdt.getId_produit()));
+			pdt.setArtistes(produitDao.listArtistes(pdt.getId()));
 		}
 		
 		request.setAttribute("produits", produits);
 		
 		
 		// === GENERATION DE LA JSP ===
-		// --- MENUS ---
-		request.setAttribute("_title", "Résultats de la recherche : \"" + pattern + "\"");
-		request.setAttribute("_rubriques_menu", rubriqueDao.list());
 		
-		// --- JSP ---
+		RequestHelpers.setUsualAttributes(request, "Résultats de la recherche : \"" + pattern + "\"");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/liste_produits.jsp").forward(request, response);
 	}
 

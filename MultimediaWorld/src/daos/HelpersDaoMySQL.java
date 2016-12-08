@@ -8,6 +8,7 @@ import beans.Commande;
 import beans.Commandite;
 import beans.Produit;
 import beans.Rubrique;
+import beans.User;
 
 public class HelpersDaoMySQL 
 {
@@ -60,7 +61,7 @@ public class HelpersDaoMySQL
 	{
 		Produit pdt = new Produit();
 		
-		pdt.setId_produit(result.getInt("id_produit"));
+		pdt.setId(result.getInt("id_produit"));
 		pdt.setNom_produit(result.getString("nom_produit"));
 		pdt.setDate_sortie(result.getString("date_sortie"));
 		pdt.setStock(result.getInt("stock"));
@@ -77,5 +78,22 @@ public class HelpersDaoMySQL
 		art.setNom(result.getString("nom_artiste"));
 		
 		return art;
+	}
+
+	// ========================================================================
+	// == USERS 
+	// ========================================================================
+		
+	public static User resultToUser(ResultSet result) throws SQLException
+	{
+		User user = new User();
+		
+		user.setUsername(result.getString("username"));
+		user.setNom(result.getString("nom"));
+		user.setPrenom(result.getString("prenom"));
+		user.setAdresse(result.getString("adresse"));
+		user.setMdp_hash(result.getString("mdp_hash"));
+		
+		return user;
 	}
 }

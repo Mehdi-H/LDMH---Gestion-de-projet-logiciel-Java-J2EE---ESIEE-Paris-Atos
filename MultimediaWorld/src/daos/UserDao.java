@@ -6,8 +6,8 @@ import beans.User;
 
 public interface UserDao 
 {
-	int create(final String nom, final String prenom, final String adresse, final String mdp_hash);
-	User find(final int id);
-	void setRole(final String label_role);
+	String create(final String username, final String role, final String nom, final String prenom, final String adresse, final String mdp_hash);
+	User find(final String username);
+	User find(final String username, final String mdp_hash);
 	List<User> list();
 }

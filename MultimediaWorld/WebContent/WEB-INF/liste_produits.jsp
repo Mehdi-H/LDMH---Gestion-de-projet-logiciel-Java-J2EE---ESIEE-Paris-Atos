@@ -4,19 +4,19 @@
 <%@ include file="_head.jsp" %>
 
 <main id="liste-produits-wrap">
-	<ul id="liste-produits">
-		<li class="produit produit-head">
-			<p>Titres</p>
-			<p>Artistes</p>
-			<p>Extraits</p>
-			<p>Prix</p>
-			<p>Achat</p>
-		</li>
+	<table class="table-liste">
+		<tr class="header-row">
+			<th scope="col">Titres</th>
+			<th scope="col">Artistes</th>
+			<th scope="col">Extraits</th>
+			<th scope="col">Prix</th>
+			<th scope="col">Panier</th>
+		</tr>
 		
 		<c:forEach items="${ produits }" var="pdt">
 			<%@ include file="__produit_liste.jsp" %>
 		</c:forEach>
-	</ul>
+	</table>
 </main>
 
 <%-- FOOTER & FOOT --%>

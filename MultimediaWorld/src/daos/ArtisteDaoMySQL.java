@@ -7,22 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ArtisteDaoMySQL implements ArtisteDao 
-{
-	// ========================================================================
-	// == ATTRIBUTS
-	// ========================================================================
-	
-	private DaoFactory factory;
-	
-	// ========================================================================
-	// == CONSTRUCTEUR
-	// ========================================================================
-	
-	ArtisteDaoMySQL(final DaoFactory factory)
-	{
-		this.factory = factory;
-	}
-	
+{	
 	// ========================================================================
 	// == METHODES BDD
 	// ========================================================================
@@ -39,7 +24,7 @@ public class ArtisteDaoMySQL implements ArtisteDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("INSERT INTO artistes(nom_artiste) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, nom_artiste);
@@ -71,7 +56,7 @@ public class ArtisteDaoMySQL implements ArtisteDao
 		// === Requête ===
 		
 		try {
-			conn = factory.getConnection();
+			conn = DaoFactory.getConnection();
 			
 			req = conn.prepareStatement("DELETE FROM artistes WHERE id_artiste = ?");
 			req.setInt(1, id_artiste);

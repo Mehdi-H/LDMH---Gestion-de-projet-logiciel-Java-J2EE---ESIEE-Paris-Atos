@@ -26,14 +26,27 @@
 		<servlet-name>Recherche</servlet-name>
 		<servlet-class>servlets.Recherche</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>AjoutPanier</servlet-name>
+		<servlet-class>servlets.AjoutPanier</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>Connexion</servlet-name>
+		<servlet-class>servlets.Connexion</servlet-class>
+	</servlet>
   
   	<!-- =================================================================================
 	== ROUTES
 	================================================================================= -->
 	
+	<welcome-file-list>
+		<welcome-file>Presentation</welcome-file>
+	</welcome-file-list>
+	
 	<servlet-mapping>
 		<servlet-name>Presentation</servlet-name>
-		<url-pattern>/</url-pattern>
 		<url-pattern>/presentation</url-pattern>
 	</servlet-mapping>
 	
@@ -45,5 +58,15 @@
 	<servlet-mapping>
 		<servlet-name>Recherche</servlet-name>
 		<url-pattern>/recherche</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AjoutPanier</servlet-name>
+		<url-pattern>/ajout_panier</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Connexion</servlet-name>
+		<url-pattern>/connexion</url-pattern>
 	</servlet-mapping>	
 </web-app>

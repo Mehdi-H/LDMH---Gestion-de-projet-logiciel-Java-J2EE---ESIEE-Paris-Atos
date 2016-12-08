@@ -1,7 +1,7 @@
 <footer id="page-footer">
 	<ul id="footer-items">
-		<li><article class="item"><img class="footer-logo-mmw" src="<%= _accueil %>/assets/img/logo-multimedia-world.png"/></article></li>
-		<li><article class="item"><img class="footer-logo-LDMH" src="<%= _accueil %>/assets/img/LDMH.png"/></article></li>
+		<li><article class="item"><img class="footer-logo-mmw" src="<%= request.getContextPath() %>/assets/img/logo-multimedia-world.png"/></article></li>
+		<li><article class="item"><img class="footer-logo-LDMH" src="<%= request.getContextPath() %>/assets/img/LDMH.png"/></article></li>
 		<li><article class="item"><a href="#">Conditions des offres en cours</a></article></li>
 		<li><article class="item"><a href="#">Conditions Générales de Vente</a></article></li>
 		<li><article class="item"><a href="#">Protection des données personnelles</a></article></li>

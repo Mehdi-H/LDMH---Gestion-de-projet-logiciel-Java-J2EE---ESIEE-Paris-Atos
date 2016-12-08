@@ -2,6 +2,8 @@ package beans;
 
 import java.util.List;
 
+import daos.DaoFactory;
+
 public class Produit 
 {
 	// ========================================================================
@@ -9,7 +11,7 @@ public class Produit
 	// ========================================================================
 
 	private int 
-		id_produit,
+		id,
 		stock;
 	
 	private String 
@@ -24,11 +26,11 @@ public class Produit
 	// == GETTERS & SETTERS
 	// ========================================================================
 	
-	public int getId_produit() {
-		return id_produit;
+	public int getId() {
+		return id;
 	}
-	public void setId_produit(int id_produit) {
-		this.id_produit = id_produit;
+	public void setId(int id_produit) {
+		this.id = id_produit;
 	}
 
 	public int getStock() {
