@@ -89,7 +89,7 @@ public class CommandeDaoMySQL implements CommandeDao
 	}
 	
 	@Override
-	public List<Commande> listCommandesUser(int id_user) 
+	public List<Commande> listCommandesUser(String username) 
 	{
 		// === Variables ===
 		
@@ -104,8 +104,8 @@ public class CommandeDaoMySQL implements CommandeDao
 		try {
 			conn = DaoFactory.getConnection();
 			
-			req = conn.prepareStatement("SELECT * FROM commandes WHERE id_user = ?");
-			req.setInt(1, id_user);
+			req = conn.prepareStatement("SELECT * FROM commandes WHERE username = ?");
+			req.setString(1, username);
 			
 			result = req.executeQuery();
 			

@@ -9,7 +9,7 @@ public interface CommandeDao
 {
 	int create(final int id_user);
 	Commande find(final int id);
-	List<Commande> listCommandesUser(final int id_user);
+	List<Commande> listCommandesUser(final String username);
 	
 	// === Setters ===
 	
