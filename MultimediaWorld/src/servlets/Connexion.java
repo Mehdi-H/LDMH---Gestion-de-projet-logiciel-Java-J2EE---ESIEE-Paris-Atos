@@ -62,17 +62,31 @@ public class Connexion extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		RequestHelpers.setUsualAttributes(request, "Connexion");
+		// === Lien d'origine / accueil ===
+		
+		String referrer = request.getHeader("referer");
+		if (referrer == null || referrer.isEmpty()) {
+			referrer = request.getContextPath();
+		}
+		
+		request.setAttribute("referrer", referrer);
 		
 		// === GENERATION DE LA JSP ===
 		
+		RequestHelpers.setUsualAttributes(request, "Connexion");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		String formName = (String) request.getParameter("formName");
+		// === Lien d'origine / accueil ===
 		
+		String referrer = (String) request.getAttribute("referrer");
+		if (referrer == null || referrer.isEmpty()) {
+			referrer = request.getContextPath();
+		}
+		
+		String formName = (String) request.getParameter("formName");
 		if (formName.equals("connexion")) 
 		{
 			// === Paramètres de la requête de connexion ===
@@ -100,7 +114,7 @@ public class Connexion extends HttpServlet
 				response.addCookie(usernameCookie);
 				
 				request.setAttribute("flash_success", "Connexion réussie");
-				this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+				response.sendRedirect(referrer);
 			}
 		}
 		else if (formName.equals("inscription"))

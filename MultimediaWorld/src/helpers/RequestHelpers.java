@@ -19,10 +19,16 @@ public abstract class RequestHelpers
 		
 		request.setAttribute("_rubriques_menu", DaoFactory.getRubriqueDao().list());
 		
+		// === User connecté ===
+		
+		User user = getCurrentUser(request);
+		if (user != null) {
+			request.setAttribute("user", user);
+		}
+		
 		// === Nombre d'articles au panier ===
 		
 		// User courant :
-		User user = getCurrentUser(request);
 		if (user != null) 
 		{
 			// Son panier :

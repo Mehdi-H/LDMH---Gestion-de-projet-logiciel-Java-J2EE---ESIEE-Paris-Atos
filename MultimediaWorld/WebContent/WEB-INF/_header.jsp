@@ -17,7 +17,27 @@
 			
 			<li class="item" id="icon-pool">
 				<%-- CONNEXION --%>
-				<article class="icon-wrap"><a href="<%= request.getContextPath() %>/connexion"><i class="icon fa fa-3x fa-user"></i><span class="icon-text">compte</span></a></article>
+				<article class="icon-wrap">
+					<c:choose>
+						<c:when test="${ user != null }">
+							<a href="<%= request.getContextPath() %>/deconnexion">
+								<i class="icon fa fa-3x fa-user"></i>
+								<span class="icon-text">
+									<c:out value="${ user.prenom } ${ user.nom }"/><br/>
+									Déconnexion
+								</span>
+							</a>
+						</c:when>
+						<c:otherwise>
+							<a href="<%= request.getContextPath() %>/connexion">
+								<i class="icon fa fa-3x fa-user"></i>
+								<span class="icon-text">
+									Compte
+								</span>
+							</a>
+						</c:otherwise>
+					</c:choose>
+				</article>
 				
 				<%-- PANIER --%>
 				<article class="icon-wrap">

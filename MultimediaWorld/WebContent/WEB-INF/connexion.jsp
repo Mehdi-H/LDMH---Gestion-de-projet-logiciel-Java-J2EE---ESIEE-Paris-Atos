@@ -1,17 +1,5 @@
 <%-- HEAD & HEADER --%>
 <%@ include file="_head.jsp" %>
-
-<c:if test="${ flash_error != null }">
-	<section class="flash error">
-		<p><c:out value="${ flash_error }"/></p>
-	</section>
-</c:if>
-
-<c:if test="${ flash_success != null }">
-	<section class="flash success">
-		<p><c:out value="${ flash_success }"/></p>
-	</section>
-</c:if>
 	
 <main id="connexion">
 	<h1>Connexion</h1>

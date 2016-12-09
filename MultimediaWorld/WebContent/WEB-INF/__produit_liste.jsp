@@ -26,6 +26,13 @@
 	
 	<%-- Achat --%>
 	<td>
-		<button class="ajouter-panier" data-product-id="${ pdt.id }">+</button>
+		<c:choose>
+			<c:when test="${ user != null }">
+				<button class="ajouter-panier ajax" data-product-id="${ pdt.id }">+</button>
+			</c:when>
+			<c:otherwise>
+				<a href="<%= request.getContextPath() %>/connexion"><button class="ajouter-panier">+</button></a>
+			</c:otherwise>
+		</c:choose>
 	</td>
 </li>

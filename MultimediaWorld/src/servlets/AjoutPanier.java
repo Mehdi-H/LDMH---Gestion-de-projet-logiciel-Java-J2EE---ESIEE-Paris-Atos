@@ -19,6 +19,7 @@ import daos.DaoFactory;
 import daos.ProduitDao;
 import daos.RubriqueDao;
 import daos.UserDao;
+import helpers.RequestHelpers;
 
 /**
  * Servlet implementation class AjoutPanier
@@ -74,14 +75,7 @@ public class AjoutPanier extends HttpServlet
 	{
 		// === Récupérer le User ===
 		
-		User user = null;
-		Cookie[] cookies = request.getCookies();
-		for (Cookie cookie : cookies)
-		{
-			if (cookie.getName().equals("username")) {
-				user = userDao.find(cookie.getValue());
-			}
-		}
+		User user = RequestHelpers.getCurrentUser(request);
 		if (user == null) {
 			return;
 		}

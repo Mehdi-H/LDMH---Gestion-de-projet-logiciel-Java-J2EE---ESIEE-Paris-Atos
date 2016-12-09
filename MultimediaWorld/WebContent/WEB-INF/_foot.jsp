@@ -15,7 +15,7 @@
 	    </script>
 	    
 	    <script>
-	    	$(document).on("click", ".ajouter-panier", function() {
+	    	$(document).on("click", ".ajouter-panier.ajax", function() {
 	    		var params = {
 	    			product_id: $(this).data("product-id")
 	    		};

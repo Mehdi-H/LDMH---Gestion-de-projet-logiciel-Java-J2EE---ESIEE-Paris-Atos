@@ -35,4 +35,18 @@
 						</span></h2>
 					</header>
 
+					<%-- MESSAGES FLASH --%>
+					
+					<c:if test="${ flash_error != null }">
+						<section class="flash error">
+							<p><c:out value="${ flash_error }"/></p>
+						</section>
+					</c:if>
+					
+					<c:if test="${ flash_success != null }">
+						<section class="flash success">
+							<p><c:out value="${ flash_success }"/></p>
+						</section>
+					</c:if>
+
 					<%-- CONTENU DE LA PAGE --%>
