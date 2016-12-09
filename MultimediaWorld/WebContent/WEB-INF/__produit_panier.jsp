@@ -26,7 +26,7 @@
 	
 	<%-- Quantité --%>
 	<td>
-		<input class="panier-quantity" data-product-id="${ pdt.id }" type="number" min="1" max="100" value="${ pdt.quantity }" />
+		<input class="quantite-panier ajax" data-product-id="${ pdt.id }" type="number" min="1" max="100" value="${ pdt.quantity }" />
 	</td>
 	
 	<%-- Supprimer --%>

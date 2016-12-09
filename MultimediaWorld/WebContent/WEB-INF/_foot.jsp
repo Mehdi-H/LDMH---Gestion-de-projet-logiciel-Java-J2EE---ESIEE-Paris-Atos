@@ -16,7 +16,7 @@
 	    
 	    <script>
 	    	// ==============================================================
-	    	// == AJOUTER AU PANIER AJAX
+	    	// == AJOUTER AU PANIER - AJAX
 	    	// ==============================================================
 	    		
 	    	$(document).on("click", ".ajouter-panier.ajax", function() {
@@ -31,7 +31,7 @@
 	    	});
 	    	
 	    	// ==============================================================
-	    	// == SUPPRIMER DU PANIER AJAX
+	    	// == SUPPRIMER DU PANIER - AJAX
 	    	// ==============================================================
 	    	
 	    	$(document).on("click", ".supprimer-panier.ajax", function() {
@@ -46,6 +46,24 @@
 	    			row.fadeOut("slow", function() {
 	    				$("#panier-amount").text("("+response+")");
 	    			})
+	    		});
+	    	});
+	    	
+	    	// ==============================================================
+	    	// == MODIFIER QUANTITÉ DU PANIER - AJAX
+	    	// ==============================================================
+	    	
+	    	$(document).on("input", ".quantite-panier.ajax", function() {
+	    		console.log("input");
+	    		
+	    		var params = {
+	    			product_id: $(this).data("product-id"),
+	    			method: "modifier",
+	    			quantite: $(this).val()
+	    		};
+	    		
+	    		$.post("<%= request.getContextPath() %>/modifier_panier", $.param(params), function(response) {
+	    			console.log("quantité modifiée");
 	    		});
 	    	});
 	    	
