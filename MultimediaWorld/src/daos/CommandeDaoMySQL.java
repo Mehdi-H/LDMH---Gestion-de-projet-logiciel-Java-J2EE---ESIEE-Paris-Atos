@@ -19,7 +19,7 @@ public class CommandeDaoMySQL implements CommandeDao
 	// ========================================================================
 	
 	@Override
-	public int create(int id_user) 
+	public int create(String username) 
 	{
 		// === Variables ===
 
@@ -32,17 +32,17 @@ public class CommandeDaoMySQL implements CommandeDao
 		try {
 			conn = DaoFactory.getConnection();
 			
-			req = conn.prepareStatement("INSERT INTO commandes(id_user, label_etat) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);
-			req.setInt(1, id_user);
-			req.setString(2, Etat.Label.CART.toString());
+			req = conn.prepareStatement("INSERT INTO commandes(username) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
+			req.setString(1, username);
 			
 			req.executeUpdate();
 			result = req.getGeneratedKeys();
 			
 			// --- Récupérer l'ID de la commande créée ---
 			
-			result.next();
-			return result.getInt("id_commande");
+			if (result.next()) {
+				return result.getInt("id_commande");
+			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -104,7 +104,7 @@ public class CommandeDaoMySQL implements CommandeDao
 		try {
 			conn = DaoFactory.getConnection();
 			
-			req = conn.prepareStatement("SELECT * FROM commandes WHERE username = ?");
+			req = conn.prepareStatement("SELECT * FROM commandes WHERE username = ? ORDER BY date_commande DESC");
 			req.setString(1, username);
 			
 			result = req.executeQuery();
@@ -121,6 +121,40 @@ public class CommandeDaoMySQL implements CommandeDao
 		}
 		
 		return commandes;
+	}
+	
+	@Override
+	public Commande findUserPanier(String username)
+	{
+		// === Variables ===
+		
+		Connection conn = null;
+		PreparedStatement req = null;
+		ResultSet result = null;
+		
+		// === Requête ===
+		
+		try {
+			conn = DaoFactory.getConnection();
+			
+			req = conn.prepareStatement("SELECT * FROM commandes WHERE username = ? AND label_etat = ?");
+			req.setString(1, username);
+			req.setString(2, Etat.Label.CART.toString());
+			
+			result = req.executeQuery();
+			
+			// --- Retourner le panier du User ---
+			
+			if (result.next()) 
+			{
+				return HelpersDaoMySQL.resultToCommande(result);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	// ------------------------------------------------------------------------
@@ -265,7 +299,7 @@ public class CommandeDaoMySQL implements CommandeDao
 			req.setInt(3, quantite);
 			req.setFloat(4, prix_unitaire);
 			
-			req.executeQuery();
+			req.executeUpdate();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -289,11 +323,45 @@ public class CommandeDaoMySQL implements CommandeDao
 			req.setInt(1, id_commande);
 			req.setInt(2, id_produit);
 			
-			req.executeQuery();
+			req.executeUpdate();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public Commandite findCommandite(int id_commande, int id_produit) 
+	{
+		// === Variables ===
+
+		Connection conn = null;
+		PreparedStatement req = null;
+		ResultSet result = null;
+		
+		// === Requête ===
+		
+		try {
+			conn = DaoFactory.getConnection();
+			
+			req = conn.prepareStatement("SELECT * FROM commandites WHERE id_commande = ? AND id_produit = ?");
+			req.setInt(1, id_commande);
+			req.setInt(2, id_produit);
+			
+			result = req.executeQuery();
+			
+			// --- Stocker la liste des commandites de la Commande ---
+			
+			if (result.next()) 
+			{
+				return HelpersDaoMySQL.resultToCommandite(result);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	@Override
@@ -314,7 +382,7 @@ public class CommandeDaoMySQL implements CommandeDao
 			req.setInt(2, id_commande);
 			req.setInt(3, id_produit);
 			
-			req.executeQuery();
+			req.executeUpdate();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

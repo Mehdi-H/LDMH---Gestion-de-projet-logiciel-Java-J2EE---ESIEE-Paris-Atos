@@ -16,17 +16,13 @@
 	    
 	    <script>
 	    	$(document).on("click", ".ajouter-panier", function() {
-	    		$.ajax({
-	    			type: "POST",
-	    			url: "<%= request.getContextPath() %>/ajout_panier",
-	    			data: {
-	    				product_id: $(this).data("product-id"),
-	    				user_id: "3"
-	    			},
-	    			success: function(response) {
-	    				console.log(response);
-	    			}
-	    		})
+	    		var params = {
+	    			product_id: $(this).data("product-id")
+	    		};
+	    		
+	    		$.post("<%= request.getContextPath() %>/ajout_panier", $.param(params), function(response) {
+	    			$("#panier-amount").text("("+response+")");
+	    		});
 	    	});
 	    </script>
 	    

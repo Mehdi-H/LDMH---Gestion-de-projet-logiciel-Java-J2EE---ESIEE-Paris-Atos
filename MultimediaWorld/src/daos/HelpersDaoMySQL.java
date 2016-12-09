@@ -20,8 +20,8 @@ public class HelpersDaoMySQL
 	{
 		Commande comm = new Commande();
 		
-		comm.setId_commande(result.getInt("id_commande"));
-		comm.setId_user(result.getInt("id_user"));
+		comm.setId(result.getInt("id_commande"));
+		comm.setUsername(result.getString("username"));
 		comm.setDate_commande(result.getString("date_commande"));
 		comm.setEtat(result.getString("date_commande"));
 		comm.setFrais_port(result.getFloat("frais_port"));

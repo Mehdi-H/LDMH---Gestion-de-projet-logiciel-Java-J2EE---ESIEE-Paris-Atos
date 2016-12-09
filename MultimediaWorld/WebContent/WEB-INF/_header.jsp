@@ -20,7 +20,17 @@
 				<article class="icon-wrap"><a href="<%= request.getContextPath() %>/connexion"><i class="icon fa fa-3x fa-user"></i><span class="icon-text">compte</span></a></article>
 				
 				<%-- PANIER --%>
-				<article class="icon-wrap"><a href="<%= request.getContextPath() %>/panier"><i class="icon fa fa-3x fa-shopping-cart"></i><span class="icon-text">panier</span></a></article>
+				<article class="icon-wrap">
+					<a href="<%= request.getContextPath() %>/panier">
+						<i class="icon fa fa-3x fa-shopping-cart"></i>
+						<span class="icon-text">Panier</span>
+						<span id="panier-amount">
+							<c:if test="${ panier_amount != null }">
+								(<c:out value="${ panier_amount }"/>)
+							</c:if>
+						</span>
+					</a>
+				</article>
 			</li>
 		</ul>
 	</nav>

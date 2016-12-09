@@ -6,11 +6,9 @@ public class Commande
 	// == CHAMPS
 	// ========================================================================
 	
-	private int 
-		id_commande,
-		id_user;
+	private int id_commande;
 	
-	private String date_commande;
+	private String username, date_commande;
 	private float frais_port;
 	private String label_etat;
 
@@ -18,18 +16,18 @@ public class Commande
 	// == GETTERS & SETTERS
 	// ========================================================================
 	
-	public int getId_commande() {
+	public int getId() {
 		return id_commande;
 	}
-	public void setId_commande(int id_commande) {
+	public void setId(int id_commande) {
 		this.id_commande = id_commande;
 	}
 	
-	public int getId_user() {
-		return id_user;
+	public String getUsername() {
+		return username;
 	}
-	public void setId_user(int id_user) {
-		this.id_user = id_user;
+	public void setUsername(String username) {
+		this.username= username;
 	}
 	
 	public String getDate_commande() {

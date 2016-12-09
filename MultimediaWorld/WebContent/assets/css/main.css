@@ -1206,3 +1206,8 @@ body {
 @media (max-width: 1500px) {
   body {
     width: 80%; } }
+
+#panier-amount {
+	color: red;
+	font-weight: bold;
+}

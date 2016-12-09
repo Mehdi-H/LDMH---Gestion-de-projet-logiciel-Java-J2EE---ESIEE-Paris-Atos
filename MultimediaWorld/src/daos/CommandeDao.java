@@ -7,9 +7,13 @@ import beans.Commandite;
 
 public interface CommandeDao 
 {
-	int create(final int id_user);
+	int create(final String username);
+	
+	// === Finders ===
+	
 	Commande find(final int id);
 	List<Commande> listCommandesUser(final String username);
+	Commande findUserPanier(final String username);
 	
 	// === Setters ===
 	
@@ -22,6 +26,7 @@ public interface CommandeDao
 	
 	void addCommandite(final int id_commande, final int id_produit, final int quantite, final float prix_unitaire);
 	void removeCommandite(final int id_commande, final int id_produit);
+	Commandite findCommandite(final int id_commande, final int id_produit);
 	void setCommanditeQuantite(final int id_commande, final int id_produit, final int quantite);
 	List<Commandite> listCommandites(final int id_commande);
 }

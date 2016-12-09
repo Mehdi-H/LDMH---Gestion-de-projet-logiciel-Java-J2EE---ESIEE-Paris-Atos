@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Commande;
+import beans.Commandite;
+import beans.Produit;
 import beans.User;
 import daos.CommandeDao;
 import daos.DaoFactory;
@@ -70,7 +72,7 @@ public class AjoutPanier extends HttpServlet
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		// === User ===
+		// === Récupérer le User ===
 		
 		User user = null;
 		Cookie[] cookies = request.getCookies();
@@ -84,17 +86,45 @@ public class AjoutPanier extends HttpServlet
 			return;
 		}
 		
-		// === Commande ===
+		// === Récupérer/Créer le panier du User ===
 		
-		List<Commande> commandes = commandeDao.listCommandesUser(user.getUsername()); 
-		Commande panier = commandes.get(commandes.size() - 1);
+		Commande panier = commandeDao.findUserPanier(user.getUsername());
 		
+		if (panier == null) 
+		{
+			// Créer un panier :
+			if (commandeDao.create(user.getUsername()) > -1) {
+				panier = commandeDao.findUserPanier(user.getUsername());
+			}
+		}
+		
+		// === Récupérer le produit à ajouter ===
+		
+		Produit produit = produitDao.find(Integer.parseInt(request.getParameter("product_id")));
+		if (produit == null) {
+			return;
+		}
+		
+		// === Créer une commandite pour ce produit ou incrémenter sa quantité ===
+		
+		Commandite commandite = commandeDao.findCommandite(panier.getId(), produit.getId());
+		if (commandite == null) {
+			// Ajouter l'article au panier :
+			commandeDao.addCommandite(panier.getId(), produit.getId(), 1, produit.getPrix());
+		}
+		else {
+			// Incrémenter quantité :
+			commandeDao.setCommanditeQuantite(panier.getId(), produit.getId(), commandite.getQuantite() + 1);
+		}
+		
+		// === Compter le nombre de produits (commandites) du panier pour le badge ===
+		
+		int nb_produits_panier = commandeDao.listCommandites(panier.getId()).size();
 		
 		// === Réponse ===
 		
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write("réponse !");
+		response.getWriter().write(nb_produits_panier + "");
 	}
-
 }

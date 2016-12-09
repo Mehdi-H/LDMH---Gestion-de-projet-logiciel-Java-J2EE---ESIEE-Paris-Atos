@@ -94,7 +94,7 @@ public class ProduitDaoMySQL implements ProduitDao
 		try {
 			conn = DaoFactory.getConnection();
 			
-			req = conn.prepareStatement("SELECT * FROM rubriques WHERE label_rubrique = ?");
+			req = conn.prepareStatement("SELECT * FROM produits WHERE id_produit = ?");
 			req.setInt(1, id_produit);
 			
 			result = req.executeQuery();
