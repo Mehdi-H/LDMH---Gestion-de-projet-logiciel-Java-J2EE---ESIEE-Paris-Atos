@@ -13,7 +13,7 @@ public abstract class RequestHelpers
 	{
 		// === Titre de la page ===
 		
-		request.setAttribute("_title", "Présentation");
+		request.setAttribute("_title", title);
 		
 		// === Rubriques du menu ===
 		
