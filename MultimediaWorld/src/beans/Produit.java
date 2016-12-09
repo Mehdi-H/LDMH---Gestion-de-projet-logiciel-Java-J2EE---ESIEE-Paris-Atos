@@ -12,7 +12,8 @@ public class Produit
 
 	private int 
 		id,
-		stock;
+		stock,
+		quantity;
 	
 	private String 
 		nom_produit,
@@ -66,5 +67,12 @@ public class Produit
 	}
 	public void setArtistes(List<Artiste> artistes) {
 		this.artistes = artistes;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 }

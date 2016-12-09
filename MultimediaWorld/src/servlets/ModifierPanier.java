@@ -19,13 +19,14 @@ import daos.DaoFactory;
 import daos.ProduitDao;
 import daos.RubriqueDao;
 import daos.UserDao;
+import helpers.DataHelpers;
 import helpers.RequestHelpers;
 
 /**
  * Servlet implementation class AjoutPanier
  */
 @WebServlet("/AjoutPanier")
-public class AjoutPanier extends HttpServlet 
+public class ModifierPanier extends HttpServlet 
 {
 	// ========================================================================
 	// == ATTRIBUTS
@@ -45,7 +46,7 @@ public class AjoutPanier extends HttpServlet
 	// == CONSTRUCTEUR
 	// ========================================================================
 
-    public AjoutPanier() 
+    public ModifierPanier() 
     {
         super();
     }
@@ -99,19 +100,28 @@ public class AjoutPanier extends HttpServlet
 			return;
 		}
 		
-		// === Créer une commandite pour ce produit ou incrémenter sa quantité ===
+		// === AJOUTER / SUPPRIMER / MODIFIER ===
 		
-		Commandite commandite = commandeDao.findCommandite(panier.getId(), produit.getId());
-		if (commandite == null) {
-			// Ajouter l'article au panier :
-			commandeDao.addCommandite(panier.getId(), produit.getId(), 1, produit.getPrix());
+		String method = request.getParameter("method");
+		
+		if (method.equals("ajouter")) 
+		{
+			// --- Ajouter le produit au panier ---
+			DataHelpers.addProduitToCommande(panier.getId(), produit);
 		}
-		else {
-			// Incrémenter quantité :
-			commandeDao.setCommanditeQuantite(panier.getId(), produit.getId(), commandite.getQuantite() + 1);
+		else if (method.equals("supprimer"))
+		{
+			// --- Supprimer l'article du panier ---
+			commandeDao.removeCommandite(panier.getId(), produit.getId());
+		}
+		else if (method.equals("modifier"))
+		{
+			// --- Modifier la quantité du produit dans le panier ---
+			int quantite = Integer.parseInt(request.getParameter("quantite"));
+			commandeDao.setCommanditeQuantite(panier.getId(), produit.getId(), quantite);
 		}
 		
-		// === Compter le nombre de produits (commandites) du panier pour le badge ===
+		// === Compter le nombre de produits dans le panier pour le header ===
 		
 		int nb_produits_panier = commandeDao.listCommandites(panier.getId()).size();
 		

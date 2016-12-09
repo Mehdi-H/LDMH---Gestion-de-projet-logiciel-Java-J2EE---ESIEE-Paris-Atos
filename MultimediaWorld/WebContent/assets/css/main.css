@@ -605,7 +605,7 @@ body {
   cursor: pointer;
   width: 8em; }
 
-.ajouter-panier {
+.ajouter-panier, .supprimer-panier {
   background: #BD5248;
   padding: 0.3em 0.8em;
   -webkit-border-radius: 20px;

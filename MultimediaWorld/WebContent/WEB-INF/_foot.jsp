@@ -15,15 +15,40 @@
 	    </script>
 	    
 	    <script>
+	    	// ==============================================================
+	    	// == AJOUTER AU PANIER AJAX
+	    	// ==============================================================
+	    		
 	    	$(document).on("click", ".ajouter-panier.ajax", function() {
 	    		var params = {
-	    			product_id: $(this).data("product-id")
+	    			product_id: $(this).data("product-id"),
+	    			method: "ajouter"
 	    		};
 	    		
-	    		$.post("<%= request.getContextPath() %>/ajout_panier", $.param(params), function(response) {
+	    		$.post("<%= request.getContextPath() %>/modifier_panier", $.param(params), function(response) {
 	    			$("#panier-amount").text("("+response+")");
 	    		});
 	    	});
+	    	
+	    	// ==============================================================
+	    	// == SUPPRIMER DU PANIER AJAX
+	    	// ==============================================================
+	    	
+	    	$(document).on("click", ".supprimer-panier.ajax", function() {
+	    		var params = {
+	    			product_id: $(this).data("product-id"),
+	    			method: "supprimer"
+	    		};
+	    		
+	    		var row = $(this).parent().parent();
+	    		
+	    		$.post("<%= request.getContextPath() %>/modifier_panier", $.param(params), function(response) {
+	    			row.fadeOut("slow", function() {
+	    				$("#panier-amount").text("("+response+")");
+	    			})
+	    		});
+	    	});
+	    	
 	    </script>
 	    
 	</body>

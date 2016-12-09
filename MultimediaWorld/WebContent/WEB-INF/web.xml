@@ -19,8 +19,8 @@
     <servlet-class>servlets.Recherche</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>AjoutPanier</servlet-name>
-    <servlet-class>servlets.AjoutPanier</servlet-class>
+    <servlet-name>ModifierPanier</servlet-name>
+    <servlet-class>servlets.ModifierPanier</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>Connexion</servlet-name>
@@ -29,6 +29,10 @@
   <servlet>
     <servlet-name>Deconnexion</servlet-name>
     <servlet-class>servlets.Deconnexion</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Panier</servlet-name>
+    <servlet-class>servlets.Panier</servlet-class>
   </servlet>
   <welcome-file-list>
     <welcome-file>Presentation</welcome-file>
@@ -46,8 +50,8 @@
     <url-pattern>/recherche</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>AjoutPanier</servlet-name>
-    <url-pattern>/ajout_panier</url-pattern>
+    <servlet-name>ModifierPanier</servlet-name>
+    <url-pattern>/modifier_panier</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Connexion</servlet-name>
@@ -56,5 +60,9 @@
   <servlet-mapping>
     <servlet-name>Deconnexion</servlet-name>
     <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Panier</servlet-name>
+    <url-pattern>/panier</url-pattern>
   </servlet-mapping>
 </web-app>

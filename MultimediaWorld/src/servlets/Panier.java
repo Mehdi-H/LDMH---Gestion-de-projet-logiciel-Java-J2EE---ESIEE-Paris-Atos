@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,9 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.naming.factory.DataSourceLinkFactory.DataSourceHandler;
-
+import beans.Commande;
+import beans.Commandite;
 import beans.Produit;
+import beans.User;
+import daos.CommandeDao;
 import daos.DaoFactory;
 import daos.ProduitDao;
 import daos.RubriqueDao;
@@ -20,10 +23,10 @@ import helpers.DataHelpers;
 import helpers.RequestHelpers;
 
 /**
- * Servlet implementation class Rubrique
+ * Servlet implementation class Panier
  */
-@WebServlet("/Rubrique")
-public class Rubrique extends HttpServlet 
+@WebServlet("/Panier")
+public class Panier extends HttpServlet 
 {
 	// ========================================================================
 	// == ATTRIBUTS
@@ -36,12 +39,14 @@ public class Rubrique extends HttpServlet
 	private UserDao userDao;
 	private RubriqueDao rubriqueDao;
 	private ProduitDao produitDao;
+
+	private CommandeDao commandeDao;
 	
 	// ========================================================================
 	// == CONSTRUCTEUR
 	// ========================================================================
 
-    public Rubrique() 
+    public Panier() 
     {
         super();
     }
@@ -55,35 +60,54 @@ public class Rubrique extends HttpServlet
     	this.userDao = DaoFactory.getUserDao();
     	this.rubriqueDao = DaoFactory.getRubriqueDao();
     	this.produitDao = DaoFactory.getProduitDao();
+    	this.commandeDao = DaoFactory.getCommandeDao();
     }
     
     // ========================================================================
  	// == HTTP
  	// ========================================================================
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		// === PARAMETRES DE LA REQUETE ===
+		// === User ===
 		
-		String path = request.getPathInfo(); // "/<label>(/...)"
-		String[] pathParts = path.split("/"); // {"", "<label>", ...}
-		String rubriqueLabel = pathParts[1]; // "<label>"
+		User user = RequestHelpers.getCurrentUser(request);
+		if (user == null) {
+			// Redirection vers la page d'accueil :
+			response.sendRedirect(request.getContextPath());
+			return;
+		}
 		
-		// === Liste des produits de la rubrique ===
+		// === Panier ===
 		
-		List<Produit> produits = produitDao.listByRubrique(rubriqueLabel);
-		DataHelpers.fillArtistesList(produits);
+		Commande panier = commandeDao.findUserPanier(user.getUsername());
+		if (panier == null) {
+			RequestHelpers.setUsualAttributes(request, "Votre panier est vide");
+			this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
+			return;
+		}
+		
+		// === Produits du panier ===
+		
+		List<Produit> produits = DataHelpers.getProduitsInCommande(panier.getId());
+		if (produits == null || produits.size() < 1) {
+			RequestHelpers.setUsualAttributes(request, "Votre panier est vide");
+			this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
+			return;
+		}
 		
 		request.setAttribute("produits", produits);
 		
 		// === GENERATION DE LA JSP ===
 		
-		RequestHelpers.setUsualAttributes(request, rubriqueLabel);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/liste_produits.jsp").forward(request, response);
+		RequestHelpers.setUsualAttributes(request, "Votre panier");
+		this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }
