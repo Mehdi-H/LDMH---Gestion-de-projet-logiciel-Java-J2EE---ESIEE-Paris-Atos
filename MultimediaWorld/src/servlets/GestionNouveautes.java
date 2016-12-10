@@ -25,10 +25,10 @@ import helpers.DataHelpers;
 import helpers.RequestHelpers;
 
 /**
- * Servlet implementation class GestionRubriques
+ * Servlet implementation class GestionNouveautes
  */
-@WebServlet("/GestionRubriques")
-public class GestionRubriques extends HttpServlet 
+@WebServlet("/GestionNouveautes")
+public class GestionNouveautes extends HttpServlet 
 {
 	// ========================================================================
 	// == ATTRIBUTS
@@ -48,7 +48,7 @@ public class GestionRubriques extends HttpServlet
 	// == CONSTRUCTEUR
 	// ========================================================================
 
-    public GestionRubriques() 
+    public GestionNouveautes() 
     {
         super();
     }
@@ -88,17 +88,22 @@ public class GestionRubriques extends HttpServlet
 			return;
 		}
 		
-		// === Rubriques ===
+		// === Nouveautés ===
 		
-		List<beans.Rubrique> rubriques = rubriqueDao.list();
+		List<Produit> produits = produitDao.listByRubrique("Nouveautés");
+		DataHelpers.fillArtistesList(produits);
 		
-		request.setAttribute("rubriques", rubriques);
-		request.setAttribute("nb_rubriques", rubriques.size());
+		List<Produit> not_new_produits = produitDao.listNotNew();
+		
+		request.setAttribute("produits", produits);
+		request.setAttribute("nb_produits", produits.size());
+		
+		request.setAttribute("not_new_produits", not_new_produits);
 		
 		// === GENERATION DE LA JSP ===
 		
-		RequestHelpers.setUsualAttributes(request, "Gestion des rubriques");
-		this.getServletContext().getRequestDispatcher("/WEB-INF/gestion_rubriques.jsp").forward(request, response);
+		RequestHelpers.setUsualAttributes(request, "Gestion des nouveautés");
+		this.getServletContext().getRequestDispatcher("/WEB-INF/gestion_nouveautes.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
@@ -120,53 +125,35 @@ public class GestionRubriques extends HttpServlet
 			return;
 		}
 		
-		// === Rubriques ===
+		// === Nouveautés ===
 		
-		List<beans.Rubrique> rubriques = rubriqueDao.list();
+		List<Produit> produits = produitDao.listByRubrique("Nouveautés");
 		
-		// === AJOUTER / SUPPRIMER / MODIFIER ===
+		// === AJOUTER / ENLEVER ===
 		
 		String method = request.getParameter("submit");
 		if (method.equals("Ajouter"))
 		{
-			// --- AJOUTER la rubrique en dernière place du menu ---
-			String label = request.getParameter("label_rubrique");
-			rubriqueDao.create(label, rubriques.size());
-		}
-		else if (method.equals("Valider"))
-		{
-			// --- MODIFIER la rubrique ---
-			// Rubrique concernée :
-			beans.Rubrique rub = rubriqueDao.find(request.getParameter("label_rubrique"));
-			if (rub != null) 
-			{
-				// ___ Position ___
-				int position = Integer.parseInt(request.getParameter("position"));
-				if (rub.getPlace_menu() != position) {
-					rubriqueDao.setPlaceMenu(rub.getLabel(), position);
-				}
-				
-				// ___ Renommer ___
-				String renom = request.getParameter("nouveau_label_rubrique");
-				if (! renom.isEmpty() && renom != null) {
-					rubriqueDao.setLabel(rub.getLabel(), renom);
-				}
+			// --- AJOUTER le produit dans la rubrique Nouveautés ---
+			Produit pdt = produitDao.find(Integer.parseInt(request.getParameter("id_produit")));
+			if (pdt != null) {
+				produitDao.addRubrique(pdt.getId(), "Nouveautés");
 			}
 			else {
-				request.setAttribute("flash_error", "Rubrique inconnue :S");
+				request.setAttribute("flash_error", "Le produit est introuvable :S");
 				this.doGet(request, response);
 				return;
 			}
 		}
-		else if (method.equals("Supprimer"))
+		else if (method.equals("Enlever"))
 		{
-			// --- SUPPRIMER la rubrique ---
-			beans.Rubrique rub = rubriqueDao.find(request.getParameter("label_rubrique"));
-			if (rub != null) {
-				rubriqueDao.delete(rub.getLabel());
+			// --- SUPPRIMER la rubrique Nouveautés du produit ---
+			Produit pdt = produitDao.find(Integer.parseInt(request.getParameter("id_produit")));
+			if (pdt != null) {
+				produitDao.removeRubrique(pdt.getId(), "Nouveautés");
 			}
 			else {
-				request.setAttribute("flash_error", "Rubrique inconnue :S");
+				request.setAttribute("flash_error", "Le produit est introuvable :S");
 				this.doGet(request, response);
 				return;
 			}

@@ -15,6 +15,8 @@ public interface ProduitDao
 	
 	Produit find(final int id_produit);
 	List<Produit> listByRubrique(final String label_rubrique);
+	List<Produit> list();
+	List<Produit> listNotNew();
 	
 	List<Produit> search(final String pattern);
 	

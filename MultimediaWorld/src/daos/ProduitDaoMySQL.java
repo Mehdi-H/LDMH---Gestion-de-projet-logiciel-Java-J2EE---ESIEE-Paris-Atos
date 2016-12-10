@@ -13,7 +13,8 @@ import beans.Produit;
 import beans.Rubrique;
 
 public class ProduitDaoMySQL implements ProduitDao 
-{// ========================================================================
+{
+	// ========================================================================
 	// == METHODES BDD
 	// ========================================================================
 	
@@ -187,6 +188,70 @@ public class ProduitDaoMySQL implements ProduitDao
 		
 		return produits;
 	}
+	
+	@Override
+	public List<Produit> list() 
+	{
+		// === Variables ===
+		
+		Connection conn = null;
+		PreparedStatement req = null;
+		ResultSet result = null;
+		
+		List<Produit> produits = new ArrayList<Produit>();
+		
+		// === Requête ===
+		
+		try {
+			conn = DaoFactory.getConnection();
+			
+			req = conn.prepareStatement("SELECT * FROM produits");
+			result = req.executeQuery();
+			
+			// --- Stocker la liste des produits de cette rubrique ---
+			
+			while (result.next()) {
+				produits.add(HelpersDaoMySQL.resultToProduit(result));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return produits;
+	}
+	
+	@Override
+	public List<Produit> listNotNew() 
+	{
+		// === Variables ===
+		
+		Connection conn = null;
+		PreparedStatement req = null;
+		ResultSet result = null;
+		
+		List<Produit> produits = new ArrayList<Produit>();
+		
+		// === Requête ===
+		
+		try {
+			conn = DaoFactory.getConnection();
+			
+			req = conn.prepareStatement("SELECT * FROM produits WHERE id_produit NOT IN (SELECT id_produit FROM classements WHERE label_rubrique LIKE 'Nouveautés')");
+			result = req.executeQuery();
+			
+			// --- Stocker la liste des produits de cette rubrique ---
+			
+			while (result.next()) {
+				produits.add(HelpersDaoMySQL.resultToProduit(result));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return produits;
+	}
 
 	// ------------------------------------------------------------------------
 	// -- SETTERS
@@ -261,7 +326,7 @@ public class ProduitDaoMySQL implements ProduitDao
 			req.setInt(1, id_produit);
 			req.setString(2, label_rubrique);
 			
-			req.executeQuery();
+			req.executeUpdate();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -285,7 +350,7 @@ public class ProduitDaoMySQL implements ProduitDao
 			req.setInt(1, id_produit);
 			req.setString(2, label_rubrique);
 			
-			req.executeQuery();
+			req.executeUpdate();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -413,5 +478,5 @@ public class ProduitDaoMySQL implements ProduitDao
 		}
 		
 		return artistes;
-	}
+	}	
 }

@@ -42,6 +42,10 @@
     <servlet-name>GestionRubriques</servlet-name>
     <servlet-class>servlets.GestionRubriques</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>GestionNouveautes</servlet-name>
+    <servlet-class>servlets.GestionNouveautes</servlet-class>
+  </servlet>
   <welcome-file-list>
     <welcome-file>Presentation</welcome-file>
   </welcome-file-list>
@@ -80,5 +84,9 @@
   <servlet-mapping>
     <servlet-name>GestionRubriques</servlet-name>
     <url-pattern>/admin/rubriques</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GestionNouveautes</servlet-name>
+    <url-pattern>/admin/nouveautes</url-pattern>
   </servlet-mapping>
 </web-app>
