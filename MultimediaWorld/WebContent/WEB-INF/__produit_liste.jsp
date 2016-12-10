@@ -35,4 +35,4 @@
 			</c:otherwise>
 		</c:choose>
 	</td>
-</li>
+</tr>

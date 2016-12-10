@@ -40,7 +40,7 @@ public class RubriqueDaoMySQL implements RubriqueDao
 			// --- Récupérer le label de la rubrique créée ---
 			
 			if (result.next()) {
-				return result.getString("label_rubrique");
+				return result.getString(1);
 			}
 		}
 		catch (SQLException e) {
@@ -66,7 +66,7 @@ public class RubriqueDaoMySQL implements RubriqueDao
 			req = conn.prepareStatement("DELETE FROM rubriques WHERE label_rubrique = ?");
 			req.setString(1, nom_rubrique);
 			
-			req.executeQuery();
+			req.executeUpdate();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -135,5 +135,55 @@ public class RubriqueDaoMySQL implements RubriqueDao
 		}
 		
 		return rubriques;
+	}
+
+	@Override
+	public void setPlaceMenu(String nom_rubrique, int position) 
+	{
+		// === Variables ===
+
+		Connection conn = null;
+		PreparedStatement req = null;
+		ResultSet result = null;
+		
+		// === Requête ===
+		
+		try {
+			conn = DaoFactory.getConnection();
+			
+			req = conn.prepareStatement("UPDATE rubriques SET place_menu = ? WHERE label_rubrique = ?");
+			req.setInt(1, position);
+			req.setString(2, nom_rubrique);
+			
+			req.executeUpdate();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void setLabel(String ancien_nom_rubrique, String nouveau_nom_rubrique) 
+	{
+		// === Variables ===
+
+		Connection conn = null;
+		PreparedStatement req = null;
+		ResultSet result = null;
+		
+		// === Requête ===
+		
+		try {
+			conn = DaoFactory.getConnection();
+			
+			req = conn.prepareStatement("UPDATE rubriques SET label_rubrique = ? WHERE label_rubrique = ?");
+			req.setString(1, nouveau_nom_rubrique);
+			req.setString(2, ancien_nom_rubrique);
+			
+			req.executeUpdate();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

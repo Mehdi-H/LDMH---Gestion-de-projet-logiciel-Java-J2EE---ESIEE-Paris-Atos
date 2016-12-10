@@ -89,6 +89,7 @@ public class HelpersDaoMySQL
 		User user = new User();
 		
 		user.setUsername(result.getString("username"));
+		user.setRole(result.getString("label_role"));
 		user.setNom(result.getString("nom"));
 		user.setPrenom(result.getString("prenom"));
 		user.setAdresse(result.getString("adresse"));
