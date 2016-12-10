@@ -32,7 +32,7 @@
 							<a href="<%= request.getContextPath() %>/connexion">
 								<i class="icon fa fa-3x fa-user"></i>
 								<span class="icon-text">
-									Compte
+									Connexion
 								</span>
 							</a>
 						</c:otherwise>

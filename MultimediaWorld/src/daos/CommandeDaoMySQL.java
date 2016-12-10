@@ -262,7 +262,7 @@ public class CommandeDaoMySQL implements CommandeDao
 			result = req.executeQuery();
 			
 			while (result.next()) {
-				total += (result.getFloat("prix_unitaire") * result.getInt("quantité"));
+				total += (result.getFloat("prix_unitaire") * result.getInt("quantite"));
 			}
 			
 			// --- Récupérer les frais de port de la commande ---

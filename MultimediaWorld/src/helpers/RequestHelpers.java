@@ -1,7 +1,12 @@
 package helpers;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import beans.Commande;
 import beans.User;
@@ -9,6 +14,14 @@ import daos.DaoFactory;
 
 public abstract class RequestHelpers
 {
+	public static void homePageDoGet(HttpServletRequest request, HttpServletResponse response, HttpServlet servlet) throws ServletException, IOException
+	{
+		// === GENERATION DE LA JSP ===
+		
+		RequestHelpers.setUsualAttributes(request, "Présentation de Multimedia World");
+		servlet.getServletContext().getRequestDispatcher("/WEB-INF/presentation.jsp").forward(request, response);
+	}
+	
 	public static void setUsualAttributes(HttpServletRequest request, final String title)
 	{
 		// === Titre de la page ===

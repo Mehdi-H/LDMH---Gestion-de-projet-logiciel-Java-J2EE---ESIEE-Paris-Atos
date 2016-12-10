@@ -52,10 +52,7 @@ public class Presentation extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		// === GENERATION DE LA JSP ===
-		
-		RequestHelpers.setUsualAttributes(request, "Présentation de Multimedia World");
-		this.getServletContext().getRequestDispatcher("/WEB-INF/presentation.jsp").forward(request, response);
+		RequestHelpers.homePageDoGet(request, response, this);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
