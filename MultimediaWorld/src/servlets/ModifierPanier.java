@@ -84,13 +84,20 @@ public class ModifierPanier extends HttpServlet
 		// === Récupérer/Créer le panier du User ===
 		
 		Commande panier = commandeDao.findUserPanier(user.getUsername());
+		int id_panier = -1;
 		
 		if (panier == null) 
 		{
 			// Créer un panier :
-			if (commandeDao.create(user.getUsername()) > -1) {
-				panier = commandeDao.findUserPanier(user.getUsername());
+			id_panier = commandeDao.create(user.getUsername(), 2.7); 
+			if (id_panier < 0) {
+				System.out.println("id_panier : " + id_panier);
+				return;
 			}
+		}
+		else 
+		{
+			id_panier = panier.getId();
 		}
 		
 		// === Récupérer le produit à ajouter ===
@@ -107,23 +114,23 @@ public class ModifierPanier extends HttpServlet
 		if (method.equals("ajouter")) 
 		{
 			// --- Ajouter le produit au panier ---
-			DataHelpers.addProduitToCommande(panier.getId(), produit);
+			DataHelpers.addProduitToCommande(id_panier, produit);
 		}
 		else if (method.equals("supprimer"))
 		{
 			// --- Supprimer l'article du panier ---
-			commandeDao.removeCommandite(panier.getId(), produit.getId());
+			commandeDao.removeCommandite(id_panier, produit.getId());
 		}
 		else if (method.equals("modifier"))
 		{
 			// --- Modifier la quantité du produit dans le panier ---
 			int quantite = Integer.parseInt(request.getParameter("quantite"));
-			commandeDao.setCommanditeQuantite(panier.getId(), produit.getId(), quantite);
+			commandeDao.setCommanditeQuantite(id_panier, produit.getId(), quantite);
 		}
 		
 		// === Compter le nombre de produits dans le panier pour le header ===
 		
-		int nb_produits_panier = commandeDao.listCommandites(panier.getId()).size();
+		int nb_produits_panier = commandeDao.listCommandites(id_panier).size();
 		
 		// === Réponse ===
 		

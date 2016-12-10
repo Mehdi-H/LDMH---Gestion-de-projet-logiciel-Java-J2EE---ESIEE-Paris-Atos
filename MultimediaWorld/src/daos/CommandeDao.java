@@ -7,7 +7,7 @@ import beans.Commandite;
 
 public interface CommandeDao 
 {
-	int create(final String username);
+	int create(final String username, final double frais_port);
 	
 	// === Finders ===
 	

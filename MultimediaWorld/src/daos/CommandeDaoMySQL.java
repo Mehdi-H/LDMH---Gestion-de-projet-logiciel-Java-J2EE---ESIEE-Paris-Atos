@@ -19,7 +19,7 @@ public class CommandeDaoMySQL implements CommandeDao
 	// ========================================================================
 	
 	@Override
-	public int create(String username) 
+	public int create(String username, double frais_port) 
 	{
 		// === Variables ===
 
@@ -32,8 +32,9 @@ public class CommandeDaoMySQL implements CommandeDao
 		try {
 			conn = DaoFactory.getConnection();
 			
-			req = conn.prepareStatement("INSERT INTO commandes(username) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
+			req = conn.prepareStatement("INSERT INTO commandes(username, frais_port) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, username);
+			req.setFloat(2, (float) frais_port);
 			
 			req.executeUpdate();
 			result = req.getGeneratedKeys();
@@ -41,7 +42,7 @@ public class CommandeDaoMySQL implements CommandeDao
 			// --- Récupérer l'ID de la commande créée ---
 			
 			if (result.next()) {
-				return result.getInt("id_commande");
+				return result.getInt(1);
 			}
 		}
 		catch (SQLException e) {
