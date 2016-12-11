@@ -119,6 +119,8 @@ public class Connexion extends HttpServlet
 		}
 		else if (formName.equals("inscription"))
 		{
+			RequestHelpers.setUsualAttributes(request, "Inscription");
+			
 			// === Paramètres de la requête de connexion ===
 
 			String username = (String) request.getParameter("username");
@@ -133,9 +135,7 @@ public class Connexion extends HttpServlet
 			// === Enregistrer l'utilisateur ===
 			
 			String currentUsername = userDao.create(username, role, nom, prenom, adresse, mdp_hash);
-			
-			RequestHelpers.setUsualAttributes(request, "Inscription");
-			if (currentUsername == null) 
+			if (currentUsername == null)
 			{
 				// --- Echec de l'inscription ---
 				

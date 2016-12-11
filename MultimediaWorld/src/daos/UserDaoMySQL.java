@@ -44,7 +44,7 @@ public class UserDaoMySQL implements UserDao
 			// --- Récupérer le username du User créé ---
 			
 			if (result.next()) {
-				return result.getString("username");
+				return result.getString(1);
 			}
 		}
 		catch (SQLException e) {
