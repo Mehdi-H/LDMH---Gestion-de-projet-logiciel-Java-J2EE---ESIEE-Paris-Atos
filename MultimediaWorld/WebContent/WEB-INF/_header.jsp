@@ -77,6 +77,43 @@
 			
 			<%-- À PROPOS --%>
 			<li class="item"><a href="<%= request.getContextPath() %>/presentation"><span>À propos</span></a></li>
+			
+			<%-- ADMINISTRATION --%>
+			<c:if test="${ admin }">
+				<li class="item">Admin
+					<ul class="dropdown">
+						<li class="item">
+							<a href="<c:url value="/admin/nouveautes"/>">
+								<span>Gestion des nouveautés</span>
+							</a>
+						</li>
+						
+						<li class="item">
+							<a href="<c:url value="/admin/rubriques"/>">
+								<span>Gestion des rubriques</span>
+							</a>
+						</li>
+						
+						<li class="item">
+							<a href="<c:url value="/admin/commandes"/>">
+								<span>Suivi des commandes</span>
+							</a>
+						</li>
+						
+						<li class="item">
+							<a href="<c:url value="/admin/clients"/>">
+								<span>Fiches clients</span>
+							</a>
+						</li>
+						
+						<li class="item">
+							<a href="<c:url value="/admin/catalogue"/>">
+								<span>Mise à jour du catalogue</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</c:if>
 		</ul>
 	</nav>
 </header>

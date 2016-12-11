@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import beans.Commande;
+import beans.Role;
 import beans.User;
 import daos.DaoFactory;
 
@@ -36,20 +37,21 @@ public abstract class RequestHelpers
 		// === User connecté ===
 		
 		User user = getCurrentUser(request);
-		if (user != null) {
-			request.setAttribute("user", user);
-		}
-		
-		// === Nombre d'articles au panier ===
-		
-		// User courant :
-		if (user != null) 
+		if (user != null)
 		{
-			// Son panier :
+			request.setAttribute("user", user);
+			
+			// --- Admin ? ---
+			
+			if (user.getRole().equals(Role.Label.ADMIN.toString())) {
+				request.setAttribute("admin", true);				
+			}
+			
+			// --- Nombre d'articles au panier ---
+			
 			Commande panier = DaoFactory.getCommandeDao().findUserPanier(user.getUsername());
 			if (panier != null) 
 			{
-				// Nombre de commandites du panier :
 				int nb_produits = DaoFactory.getCommandeDao().listCommandites(panier.getId()).size();
 				if (nb_produits > 0) {
 					request.setAttribute("panier_amount", nb_produits);
