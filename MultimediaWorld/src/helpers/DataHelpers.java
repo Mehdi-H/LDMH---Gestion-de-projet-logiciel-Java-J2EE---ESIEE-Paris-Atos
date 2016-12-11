@@ -75,4 +75,10 @@ public abstract class DataHelpers
 			DaoFactory.getCommandeDao().setCommanditeQuantite(id_commande, produit.getId(), commandite.getQuantite() + 1);
 		}
 	}
+	
+	/**
+	 * Retourner un entier en fonction de l'état d'une commande.
+	 * return 0 pour "Panier", 1 pour "Commandé", 2 pour "En livraison" ou 3 pour "Livré".
+	 */
+	
 }

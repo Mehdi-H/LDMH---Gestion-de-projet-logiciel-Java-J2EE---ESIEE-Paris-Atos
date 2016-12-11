@@ -90,6 +90,39 @@ public class CommandeDaoMySQL implements CommandeDao
 	}
 	
 	@Override
+	public List<Commande> list() 
+	{
+		// === Variables ===
+		
+		Connection conn = null;
+		PreparedStatement req = null;
+		ResultSet result = null;
+		
+		List<Commande> commandes = new ArrayList<Commande>();
+		
+		// === Requête ===
+		
+		try {
+			conn = DaoFactory.getConnection();
+			
+			req = conn.prepareStatement("SELECT * FROM commandes ORDER BY date_commande DESC");
+			result = req.executeQuery();
+			
+			// --- Stocker la liste des commandes ---
+			
+			while (result.next()) 
+			{
+				commandes.add(HelpersDaoMySQL.resultToCommande(result));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return commandes;
+	}
+	
+	@Override
 	public List<Commande> listCommandesUser(String username) 
 	{
 		// === Variables ===

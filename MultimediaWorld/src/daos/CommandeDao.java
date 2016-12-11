@@ -12,6 +12,7 @@ public interface CommandeDao
 	// === Finders ===
 	
 	Commande find(final int id);
+	List<Commande> list();
 	List<Commande> listCommandesUser(final String username);
 	Commande findUserPanier(final String username);
 	

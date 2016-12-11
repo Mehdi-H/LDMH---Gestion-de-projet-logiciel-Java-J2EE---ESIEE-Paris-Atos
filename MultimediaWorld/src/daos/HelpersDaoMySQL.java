@@ -23,7 +23,7 @@ public class HelpersDaoMySQL
 		comm.setId(result.getInt("id_commande"));
 		comm.setUsername(result.getString("username"));
 		comm.setDate_commande(result.getString("date_commande"));
-		comm.setEtat(result.getString("date_commande"));
+		comm.setEtat(result.getString("label_etat"));
 		comm.setFrais_port(result.getFloat("frais_port"));
 		
 		return comm;

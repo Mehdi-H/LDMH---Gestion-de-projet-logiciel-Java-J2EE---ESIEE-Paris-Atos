@@ -29,6 +29,19 @@ public class Etat
 		{
 			return Label.CART;
 		}
+		
+		public static Label fromString(final String text)
+		{
+			if (text != null) {
+				for (Label lab : Label.values()) {
+					if (text.equalsIgnoreCase(lab.toString())) {
+						return lab;
+					}
+				}
+			}
+			
+			return null;
+		}
 	}
 	
 	// ========================================================================

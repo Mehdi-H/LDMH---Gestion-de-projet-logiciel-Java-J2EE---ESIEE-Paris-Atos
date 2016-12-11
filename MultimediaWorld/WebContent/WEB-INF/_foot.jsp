@@ -67,6 +67,23 @@
 	    		});
 	    	});
 	    	
+	    	// ==============================================================
+	    	// == ETAT COMMANDE
+	    	// ==============================================================
+	    	
+	    	<c:if test="${ etats != null }">
+		    	$(document).ready(function() {
+		    		var etats = [];
+		    		
+		    		<c:forEach items="${ etats }" var="etat">
+		    			etats.push("${ etat.toString() }")
+		    		</c:forEach>
+	
+		    		$(document).on("input", "#etat-commande", function() {
+		    			$("#etat-text").text(etats[$(this).val()]);
+		    		});
+		    	});
+		    </c:if>
 	    </script>
 	    
 	</body>

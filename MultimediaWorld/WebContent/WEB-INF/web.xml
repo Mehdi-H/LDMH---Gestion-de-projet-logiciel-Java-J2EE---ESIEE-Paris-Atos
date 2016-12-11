@@ -46,6 +46,10 @@
     <servlet-name>GestionNouveautes</servlet-name>
     <servlet-class>servlets.GestionNouveautes</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SuiviCommande</servlet-name>
+    <servlet-class>servlets.SuiviCommande</servlet-class>
+  </servlet>
   <welcome-file-list>
     <welcome-file>Presentation</welcome-file>
   </welcome-file-list>
@@ -88,5 +92,9 @@
   <servlet-mapping>
     <servlet-name>GestionNouveautes</servlet-name>
     <url-pattern>/admin/nouveautes</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SuiviCommande</servlet-name>
+    <url-pattern>/admin/commandes</url-pattern>
   </servlet-mapping>
 </web-app>
