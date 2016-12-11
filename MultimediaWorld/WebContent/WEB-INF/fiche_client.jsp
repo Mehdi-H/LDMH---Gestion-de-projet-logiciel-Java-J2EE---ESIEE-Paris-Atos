@@ -25,7 +25,7 @@
 				<div>
 					<p>Adresse : <strong>${ client.adresse }</strong></p>
 					<p>Rôle : <strong>${ client.role }</strong></p>
-				</div> 
+				</div>
 			</article>
 		</section>
 		

@@ -54,6 +54,10 @@
     <servlet-name>FicheClient</servlet-name>
     <servlet-class>servlets.FicheClient</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>MajCatalogue</servlet-name>
+    <servlet-class>servlets.MajCatalogue</servlet-class>
+  </servlet>
   <welcome-file-list>
     <welcome-file>Presentation</welcome-file>
   </welcome-file-list>
@@ -104,5 +108,9 @@
   <servlet-mapping>
     <servlet-name>FicheClient</servlet-name>
     <url-pattern>/admin/clients</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MajCatalogue</servlet-name>
+    <url-pattern>/admin/catalogue</url-pattern>
   </servlet-mapping>
 </web-app>
