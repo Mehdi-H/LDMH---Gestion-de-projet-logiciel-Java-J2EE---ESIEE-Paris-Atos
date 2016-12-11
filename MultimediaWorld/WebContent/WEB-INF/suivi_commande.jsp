@@ -26,7 +26,11 @@
 			
 			<form action="" method="POST">
 				<tr>
-					<td>${ commande.username }</td>
+					<td>
+						<a class="lien-table" href="<%= request.getContextPath() %>/admin/clients?username_input=${ commande.username }">
+							${ commande.username }
+						</a>
+					</td>
 					<td>${ commande.id}</td>
 					<td>${ commande.date_commande }</td>
 					<td>${ total }</td>

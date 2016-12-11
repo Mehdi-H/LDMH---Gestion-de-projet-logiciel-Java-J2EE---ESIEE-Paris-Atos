@@ -4,7 +4,12 @@ ul {
   padding: 0; }
 
 a {
-  color: black; }
+  color: black; 
+}
+a.lien-table {
+	color: inherit;
+	text-decoration: underline;
+}
 
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
